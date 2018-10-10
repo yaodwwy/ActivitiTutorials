@@ -37,6 +37,7 @@ public class ReceiveTaskTest {
         logger.warn("当前节点:");
         Print.exec(List.of(exe));
 
+        // 等待任务，也就是说需要手动推进下一步的执行
         // 让它往前走
         runService.trigger(exe.getId());
 

@@ -33,7 +33,8 @@ public class MessageTest {
                 .singleResult();
 
         System.out.println(pi.getId() + ", 当前节点：" + exe.getActivityId());
-        
+
+        // 一个消息触发的中间捕获事件
         // 让它往前走
         runService.messageEventReceived("testMsg", exe.getId());
         
