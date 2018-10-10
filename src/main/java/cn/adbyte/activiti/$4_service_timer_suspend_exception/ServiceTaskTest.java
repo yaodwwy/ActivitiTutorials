@@ -35,6 +35,11 @@ public class ServiceTaskTest {
         当一个流程被挂起后,是不能继续新建立这个流程的实例了,会有异常抛出,请注意在上面的方法中,
         可以设定这个流程实例的过期时间,也可以通过流程实例id去挂起激活流程:
          */
+        // 中止
+        runService.suspendProcessInstanceById(pi.getId());
+        Thread.sleep(10000);
+        // 再激活
+        runService.activateProcessInstanceById(pi.getId());
 
         //工作查询对象
         JobQuery jobQuery = managementService.createJobQuery();
