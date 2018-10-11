@@ -12,7 +12,6 @@ import org.activiti.engine.runtime.*;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 public class ServiceTaskTest {
 

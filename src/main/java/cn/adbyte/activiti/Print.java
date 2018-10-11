@@ -6,6 +6,9 @@ import org.activiti.engine.task.Task;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.List;
 
 public class Print {
@@ -34,7 +37,7 @@ public class Print {
             logger.warn("name =" + pi.getName());
             logger.warn("BusinessKey =" + pi.getBusinessKey());
             logger.warn("ProcessVariables =" + pi.getProcessVariables());
-            logger.warn("StartTime =" + pi.getStartTime());
+            logger.warn("StartTime =" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(pi.getStartTime()));
             logger.warn("StartUserId =" + pi.getStartUserId());
             logger.warn("Description =" + pi.getDescription());
             logger.warn("ProcessDefinitionName =" + pi.getProcessDefinitionName());

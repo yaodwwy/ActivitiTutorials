@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1539166783937" name="" targetNamespace="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <process id="myProcess" isClosed="false" isExecutable="true" name="My process" processType="None">
+    <endEvent id="endevent1" name="End"/>
+    <userTask activiti:exclusive="true" id="usertask1" name="User Task"/>
+    <sequenceFlow id="flow2" sourceRef="usertask1" targetRef="endevent1"/>
+    <startEvent id="timerstartevent1" name="Timer start">
+      <timerEventDefinition id="timerstartevent1_ED_1">
+        <timeCycle><![CDATA[0/5 * * * * ?]]></timeCycle>
+      </timerEventDefinition>
+    </startEvent>
+    <sequenceFlow id="flow3" sourceRef="timerstartevent1" targetRef="usertask1"/>
+  </process>
+  <bpmndi:BPMNDiagram documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
+    <bpmndi:BPMNPlane bpmnElement="myProcess">
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="Shape-endevent1">
+        <omgdc:Bounds height="32.0" width="32.0" x="490.0" y="170.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask1" id="Shape-usertask1">
+        <omgdc:Bounds height="55.0" width="105.0" x="290.0" y="160.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="55.0" width="105.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="timerstartevent1" id="Shape-timerstartevent1">
+        <omgdc:Bounds height="32.0" width="32.0" x="165.0" y="185.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2" sourceElement="usertask1" targetElement="endevent1">
+        <omgdi:waypoint x="395.0" y="187.5"/>
+        <omgdi:waypoint x="490.0" y="186.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="-1.0" width="-1.0" x="-1.0" y="-1.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3" sourceElement="timerstartevent1" targetElement="usertask1">
+        <omgdi:waypoint x="197.0" y="201.0"/>
+        <omgdi:waypoint x="290.0" y="187.5"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="-1.0" width="-1.0" x="-1.0" y="-1.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
