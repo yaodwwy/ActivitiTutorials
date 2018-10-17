@@ -9,14 +9,14 @@
 无法执行的工作</documentation>
     <startEvent id="startEvent1" name="开始"></startEvent>
     <endEvent id="sid-1DFDBA29-D169-409C-BFBC-913575DB2644" name="结束"></endEvent>
-    <serviceTask id="sid-9C2CA8A5-1CFE-454F-9D40-678579CC5AA0" name="服务任务默认处理" activiti:async="true" activiti:class="cn.adbyte.activiti.delegate.MyJavaDelegate"></serviceTask>
+    <serviceTask id="sid-9C2CA8A5-1CFE-454F-9D40-678579CC5AA0" name="服务任务默认处理" activiti:async="true" activiti:class="cn.adbyte.activiti.delegate._4流程操作.MyJavaDelegate"></serviceTask>
     <intermediateCatchEvent id="sid-25AD3389-D11C-41B7-AC23-7883E915A76E" name="TimerCatchEvent">
       <timerEventDefinition>
         <timeDuration>PT10S</timeDuration>
       </timerEventDefinition>
     </intermediateCatchEvent>
     <userTask id="sid-2D971D69-82EA-4D6C-9EE1-2B19C772060E" name="用户任务"></userTask>
-    <serviceTask id="sid-64CE75C8-2FD0-4F3C-9466-2AD087CA1487" name="服务任务抛异常" activiti:async="true" activiti:class="cn.adbyte.activiti.delegate.MyExceptionJavaDelegate"></serviceTask>
+    <serviceTask id="sid-64CE75C8-2FD0-4F3C-9466-2AD087CA1487" name="服务任务抛异常" activiti:async="true" activiti:class="cn.adbyte.activiti.delegate._4流程操作.MyExceptionJavaDelegate"></serviceTask>
     <sequenceFlow id="sid-E20C7623-6B44-4C1C-BFEF-0048430EBD06" sourceRef="startEvent1" targetRef="sid-9C2CA8A5-1CFE-454F-9D40-678579CC5AA0"></sequenceFlow>
     <sequenceFlow id="sid-A82E4B5C-0C06-406A-A6CC-2888D16DF319" sourceRef="sid-9C2CA8A5-1CFE-454F-9D40-678579CC5AA0" targetRef="sid-25AD3389-D11C-41B7-AC23-7883E915A76E"></sequenceFlow>
     <sequenceFlow id="sid-52228286-472F-4F54-AFA5-7E759A379001" sourceRef="sid-25AD3389-D11C-41B7-AC23-7883E915A76E" targetRef="sid-64CE75C8-2FD0-4F3C-9466-2AD087CA1487"></sequenceFlow>
