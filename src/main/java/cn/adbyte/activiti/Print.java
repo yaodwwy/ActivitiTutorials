@@ -7,19 +7,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.List;
 
 public class Print {
     private static final Logger logger = LoggerFactory.getLogger(Print.class);
     public static void main(String[] args) {
-        logger.info("Method:Hello");
-        logger.warn("World");
+        logger.info("info");
+        logger.debug("debug");
+        logger.warn("warn");
     }
 
     public static void tasks(List<Task> tasks) {
         for (Task task : tasks) {
+            logger.warn("================Print.tasks==============");
             logger.warn("task id =" + task.getId());
             logger.warn("name =" + task.getName());
             logger.warn("owner =" + task.getOwner());
@@ -33,6 +33,7 @@ public class Print {
     }
     public static void instances(List<ProcessInstance> instances) {
         for (ProcessInstance pi : instances) {
+            logger.warn("================Print.instances==============");
             logger.warn("ProcessInstance id =" + pi.getId());
             logger.warn("name =" + pi.getName());
             logger.warn("BusinessKey =" + pi.getBusinessKey());
@@ -48,6 +49,7 @@ public class Print {
 
     public static void exec(List<Execution> executions){
         for (Execution e : executions) {
+            logger.warn("================Print.executions==============");
             logger.warn("Execution id =" + e.getId());
             logger.warn("name =" + e.getName());
             logger.warn("ActivityId =" + e.getActivityId());

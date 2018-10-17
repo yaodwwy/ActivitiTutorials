@@ -2,12 +2,14 @@ package cn.adbyte.activiti;
 
 import org.activiti.engine.*;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
  * @author Adam
  */
 @Configuration
+@ComponentScan
 public class ActivitiConfig {
 
     @Bean
@@ -23,6 +25,14 @@ public class ActivitiConfig {
         config.setJdbcPassword("root");
         config.setDatabaseSchemaUpdate("true");
         config.setAsyncExecutorActivate(true);
+        /**
+         * Mail配置
+         */
+        config.setMailServerHost("smtp.163.com");
+        config.setMailServerPort(25);
+        config.setMailServerDefaultFrom("abc@163.com");
+        config.setMailServerUsername("abc@163.com");
+        config.setMailServerPassword("123456");
         return config.buildProcessEngine();
     }
 

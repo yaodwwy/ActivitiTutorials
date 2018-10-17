@@ -22,7 +22,7 @@ public class ServiceTaskTest {
         ManagementService managementService = applicationContext.getBean(ManagementService.class);
         TaskService taskService = applicationContext.getBean(TaskService.class);
 
-        Deployment dep = rs.createDeployment().addClasspathResource("service_timer_suspend_exception.bpmn20.xml").deploy();
+        Deployment dep = rs.createDeployment().addClasspathResource("service_timer_suspend_exception.bpmn").deploy();
         ProcessDefinition pd = rs.createProcessDefinitionQuery().deploymentId(dep.getId()).singleResult();
 
         ProcessInstance pi = runService.startProcessInstanceById(pd.getId());

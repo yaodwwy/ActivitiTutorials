@@ -24,7 +24,7 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @Import({ActivitiConfig.class})
-public class 中间捕获事件测试 {
+public class 边界事件测试 {
 
     @Autowired
     private RepositoryService rs;
@@ -40,8 +40,8 @@ public class 中间捕获事件测试 {
 
 
     @Test
-    public void 中间定时器捕获事件() throws InterruptedException {
-        Deployment dep = rs.createDeployment().addClasspathResource("CatchTimerEvent.bpmn20.xml").deploy();
+    public void 边界定时事件() throws InterruptedException {
+        Deployment dep = rs.createDeployment().addClasspathResource("边界定时事件.bpmn20.xml").deploy();
         ProcessDefinition pd = rs.createProcessDefinitionQuery().deploymentId(dep.getId()).singleResult();
         // 启动流程
         ProcessInstance pi = runService.startProcessInstanceById(pd.getId());
@@ -56,8 +56,8 @@ public class 中间捕获事件测试 {
     }
 
     @Test
-    public void 中间信号捕获事件() {
-        Deployment dep = rs.createDeployment().addClasspathResource("CatchSignalEvent.bpmn20.xml").deploy();
+    public void 边界信号事件() {
+        Deployment dep = rs.createDeployment().addClasspathResource("边界信号事件.bpmn20.xml").deploy();
         ProcessDefinition pd = rs.createProcessDefinitionQuery().deploymentId(dep.getId()).singleResult();
         // 启动流程
         ProcessInstance pi = runService.startProcessInstanceById(pd.getId());
@@ -73,6 +73,7 @@ public class 中间捕获事件测试 {
         System.out.println("当前任务：" + task.getName());
 
         // 信号触发
+        System.out.println("信号触发->>contactChangeSignal");
         runService.signalEventReceived("contactChangeSignal");
 
         task = taskService.createTaskQuery().processInstanceId(pi.getId()).singleResult();

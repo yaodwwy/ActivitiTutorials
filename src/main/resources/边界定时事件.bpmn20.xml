@@ -17,19 +17,19 @@
   <bpmndi:BPMNDiagram id="BPMNDiagram_CatchTimerEvent">
     <bpmndi:BPMNPlane bpmnElement="CatchTimerEvent" id="BPMNPlane_CatchTimerEvent">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
-        <omgdc:Bounds height="30.0" width="30.0" x="140.0" y="160.0"></omgdc:Bounds>
+        <omgdc:Bounds height="30.0" width="30.0" x="-15.0" y="-15.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
-        <omgdc:Bounds height="55.0" width="105.0" x="240.0" y="150.0"></omgdc:Bounds>
+        <omgdc:Bounds height="55.0" width="105.0" x="-52.5" y="-27.5"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask2" id="BPMNShape_usertask2">
-        <omgdc:Bounds height="55.0" width="105.0" x="330.0" y="270.0"></omgdc:Bounds>
+        <omgdc:Bounds height="55.0" width="105.0" x="349.5" y="170.5"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
-        <omgdc:Bounds height="28.0" width="28.0" x="500.0" y="160.0"></omgdc:Bounds>
+        <omgdc:Bounds height="28.0" width="28.0" x="-14.0" y="-14.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="boundarytimer1" id="BPMNShape_boundarytimer1">
-        <omgdc:Bounds height="31.0" width="31.0" x="250.72666298885497" y="189.86566046636597"></omgdc:Bounds>
+        <omgdc:Bounds height="31.0" width="31.0" x="-15.5" y="-15.5"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
         <omgdi:waypoint x="169.99752127569985" y="175.27268220501273"></omgdi:waypoint>

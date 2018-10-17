@@ -41,7 +41,7 @@ public class 结束事件测试 {
 
     @Test
     public void 错误结束事件() {
-        Deployment dep = rs.createDeployment().addClasspathResource("ThrowDelegateByEndEvant.bpmn20.xml").deploy();
+        Deployment dep = rs.createDeployment().addClasspathResource("ThrowDelegateByEndEvant.bpmn").deploy();
         ProcessDefinition pd = rs.createProcessDefinitionQuery().deploymentId(dep.getId()).singleResult();
         ProcessInstance pi = runService.startProcessInstanceById(pd.getId());
         Print.instances(List.of(pi));
@@ -50,7 +50,7 @@ public class 结束事件测试 {
 
     @Test
     public void 取消结束事件() {
-        Deployment dep = rs.createDeployment().addClasspathResource("Cancle.bpmn20.xml").deploy();
+        Deployment dep = rs.createDeployment().addClasspathResource("Cancle.bpmn").deploy();
         ProcessDefinition pd = rs.createProcessDefinitionQuery().deploymentId(dep.getId()).singleResult();
         ProcessInstance pi = runService.startProcessInstanceById(pd.getId());
 

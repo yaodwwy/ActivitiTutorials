@@ -52,7 +52,7 @@ public class 开始事件测试 {
     }
     @Test
     public void 错误开始事件() {
-        Deployment dep = rs.createDeployment().addClasspathResource("ThrowDelegate.bpmn20.xml").deploy();
+        Deployment dep = rs.createDeployment().addClasspathResource("ThrowDelegate.bpmn").deploy();
         ProcessDefinition pd = rs.createProcessDefinitionQuery().deploymentId(dep.getId()).singleResult();
         ProcessInstance pi = runService.startProcessInstanceById(pd.getId());
         Print.instances(List.of(pi));
