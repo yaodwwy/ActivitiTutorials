@@ -1,4 +1,4 @@
-package cn.adbyte.activiti.$4_service_timer_suspend_exception.delegate;
+package cn.adbyte.activiti.delegate;
 
 import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.delegate.JavaDelegate;

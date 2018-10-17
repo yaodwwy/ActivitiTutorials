@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+    xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+    typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
+    targetNamespace="http://www.activiti.org/test">
+    <process id="myProcess" name="My process" isExecutable="true">
+        <startEvent id="startevent1" name="Start"></startEvent>
+        <serviceTask id="servicetask1" name="工商银行扣款"
+            activiti:class="cn.adbyte.activiti.delegate._6中间抛出事件补偿.IcbcReduceDelegate"></serviceTask>
+        <serviceTask id="servicetask2" name="农业银行加款"
+            activiti:class="cn.adbyte.activiti.delegate._6中间抛出事件补偿.AbcAddDelegate"></serviceTask>
+        <intermediateThrowEvent id="compensationintermediatethrowevent1"
+            name="CompensationThrowingEvent">
+            <extensionElements>
+                <activiti:executionListener event="start" class="cn.adbyte.activiti.delegate._6中间抛出事件补偿.MyExecutionListener">
+                </activiti:executionListener>
+            </extensionElements>
+            <compensateEventDefinition></compensateEventDefinition>
+        </intermediateThrowEvent>
+        <endEvent id="endevent1" name="End"></endEvent>
+        <sequenceFlow id="flow1" sourceRef="startevent1"
+            targetRef="servicetask1"></sequenceFlow>
+        <sequenceFlow id="flow2" sourceRef="servicetask1"
+            targetRef="servicetask2"></sequenceFlow>
+        <sequenceFlow id="flow3" sourceRef="servicetask2"
+            targetRef="compensationintermediatethrowevent1"></sequenceFlow>
+        <sequenceFlow id="flow4"
+            sourceRef="compensationintermediatethrowevent1" targetRef="endevent1"></sequenceFlow>
+        <boundaryEvent id="boundarycompensation1" name="Compensate"
+            attachedToRef="servicetask1" cancelActivity="true">
+            <compensateEventDefinition></compensateEventDefinition>
+        </boundaryEvent>
+        <boundaryEvent id="boundarycompensation2" name="Compensate"
+            attachedToRef="servicetask2" cancelActivity="true">
+            <compensateEventDefinition></compensateEventDefinition>
+        </boundaryEvent>
+        <serviceTask id="servicetask3" name="工商银行处理补偿"
+            activiti:class="cn.adbyte.activiti.delegate._6中间抛出事件补偿.IcbcAddDelegate"
+            isForCompensation="true"></serviceTask>
+        <serviceTask id="servicetask4" name="农业银行处理补偿"
+            activiti:class="cn.adbyte.activiti.delegate._6中间抛出事件补偿.AbcReduceDelegate" isForCompensation="true"></serviceTask>
+        <association id="association1" sourceRef="boundarycompensation1"
+            targetRef="servicetask3"></association>
+        <association id="association2" sourceRef="boundarycompensation2"
+            targetRef="servicetask4"></association>
+    </process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_myProcess">
+        <bpmndi:BPMNPlane bpmnElement="myProcess"
+            id="BPMNPlane_myProcess">
+            <bpmndi:BPMNShape bpmnElement="startevent1"
+                id="BPMNShape_startevent1">
+                <omgdc:Bounds height="35.0" width="35.0" x="0.0"
+                    y="10.000000000000043"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="servicetask1"
+                id="BPMNShape_servicetask1">
+                <omgdc:Bounds height="55.0" width="105.0"
+                              x="99.01508529717765" y="4.263256414560601E-14"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="boundarycompensation1"
+                id="BPMNShape_boundarycompensation1">
+                <omgdc:Bounds height="30.0" width="30.0" x="323.0"
+                    y="112.70117187500004"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="servicetask2"
+                id="BPMNShape_servicetask2">
+                <omgdc:Bounds height="55.0" width="105.0"
+                              x="267.5477812084746" y="0.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="boundarycompensation2"
+                id="BPMNShape_boundarycompensation2">
+                <omgdc:Bounds height="30.0" width="30.0" x="444.0"
+                    y="112.70117187500004"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="compensationintermediatethrowevent1"
+                id="BPMNShape_compensationintermediatethrowevent1">
+                <omgdc:Bounds height="35.0" width="35.0" x="436.5628665056522"
+                    y="9.999999999999968"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="endevent1"
+                id="BPMNShape_endevent1">
+                <omgdc:Bounds height="35.0" width="35.0" x="536.0603411887105"
+                    y="9.999999999999943"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="servicetask3"
+                id="BPMNShape_servicetask3">
+                <omgdc:Bounds height="55.0" width="105.0"
+                              x="0.0" y="112.70117187500006"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="servicetask4"
+                id="BPMNShape_servicetask4">
+                <omgdc:Bounds height="55.0" width="105.0"
+                              x="150.0" y="112.70117187500006"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="flow1"
+                id="BPMNEdge_flow1">
+                <omgdi:waypoint x="105.0" y="167.0"></omgdi:waypoint>
+                <omgdi:waypoint x="170.0" y="167.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="flow2"
+                id="BPMNEdge_flow2">
+                <omgdi:waypoint x="275.0" y="167.0"></omgdi:waypoint>
+                <omgdi:waypoint x="340.0" y="167.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="flow3"
+                id="BPMNEdge_flow3">
+                <omgdi:waypoint x="445.0" y="167.0"></omgdi:waypoint>
+                <omgdi:waypoint x="520.0" y="167.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="flow4"
+                id="BPMNEdge_flow4">
+                <omgdi:waypoint x="555.0" y="167.0"></omgdi:waypoint>
+                <omgdi:waypoint x="640.0" y="167.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="association1"
+                id="BPMNEdge_association1">
+                <omgdi:waypoint x="245.0" y="220.0"></omgdi:waypoint>
+                <omgdi:waypoint x="282.0" y="240.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="association2"
+                id="BPMNEdge_association2">
+                <omgdi:waypoint x="415.0" y="220.0"></omgdi:waypoint>
+                <omgdi:waypoint x="452.0" y="240.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</definitions>

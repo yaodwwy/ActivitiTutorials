@@ -27,20 +27,7 @@ public class SingleEventTest {
                 .deploymentId(dep.getId()).singleResult();
         // 启动流程
         ProcessInstance pi = runService.startProcessInstanceById(pd.getId());
-        // 查当前的子执行流（只有一个）
-        Execution exe = runService.createExecutionQuery()
-                .processInstanceId(pi.getId()).onlyChildExecutions()
-                .singleResult();
 
-        System.out.println(pi.getId() + ", 当前节点：" + exe.getActivityId());
-        
-        runService.signalEventReceived("testSignal");
-
-        exe = runService.createExecutionQuery()
-                .processInstanceId(pi.getId()).onlyChildExecutions()
-                .singleResult();
-
-        System.out.println(pi.getId() + ", 当前节点：" + exe.getActivityId());
     }
 
 }

@@ -1,4 +1,4 @@
-package cn.adbyte.activiti.$3_task_var_start_ProcessInstance.pojo;
+package cn.adbyte.activiti.pojo;
 
 import java.io.Serializable;
 

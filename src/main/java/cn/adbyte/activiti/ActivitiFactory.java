@@ -12,6 +12,8 @@ import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.activiti.image.impl.DefaultProcessDiagramGenerator;
+import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,49 +105,75 @@ public class ActivitiFactory {
      * @param png
      * @throws IOException
      */
-    public Deployment deploy(String fileName, BpmnModel bpmnModel, boolean png) throws Exception {
-        //获取绘图生成器
-        DefaultProcessDiagramGenerator generator = new DefaultProcessDiagramGenerator();
-        InputStream pngStream = generator.generatePngDiagram(bpmnModel);
+    public String deploy(String fileName, BpmnModel bpmnModel, String processKey, boolean png) throws Exception {
 
-        DeploymentBuilder builder = repositoryService.createDeployment();
         //act_ge_bytearray 表中的NAME_
         String bpmnFileName = fileName + ".bpmn20.xml";
         String pngFileName = fileName + ".png";
-        builder.addBpmnModel(bpmnFileName, bpmnModel).addInputStream(pngFileName, pngStream);
-        Deployment deploy = builder.deploy();
-        String deployID = deploy.getId();
+
+        // 把BpmnModel对象部署到引擎
+        DeploymentBuilder builder = repositoryService.createDeployment();
+        Deployment deployment = builder.addBpmnModel(bpmnFileName, bpmnModel).name("Dynamic process deployment")
+                .deploy();
+
+        // 启动流程
+        ProcessInstance processInstance = runService.startProcessInstanceByKey(processKey);
+
+        // 检查流程是否正常启动
+        List<Task> tasks = taskService.createTaskQuery().processInstanceId(processInstance.getId()).list();
+        Assert.assertEquals(true, tasks.size() > 0);
+
+        String deployID = deployment.getId();
         InputStream deploymentResource = repositoryService.getResourceAsStream(deployID, bpmnFileName);
-        // 读取输入流
-        int count = deploymentResource.available();
-        byte[] contents = new byte[count];
-        deploymentResource.read(contents);
-        String result = new String(contents);
-        //输入输出结果
-        File xmlFile = new File(GEN_PATH + bpmnFileName);
-        if (!xmlFile.exists()) {
-            xmlFile.createNewFile();
-        }
-        FileWriter fileWriter = new FileWriter(xmlFile);
-        fileWriter.write(result);
-        fileWriter.close();
+
+
+        // 把文件生成在本章项目的generated目录中
+        String userHomeDir = "src/main/resources/generated/";
+
+        // 导出Bpmn20.xml文件到本地文件系统
+        InputStream processBpmn = repositoryService.getResourceAsStream(deployment.getId(), bpmnFileName);
+        File xmlFile = new File(userHomeDir + bpmnFileName);
+        FileUtils.copyInputStreamToFile(processBpmn, xmlFile);
+
         logger.debug("流程文件" + xmlFile.getAbsolutePath() + " 写入完成！");
         deploymentResource.close();
-        if(png){
-            // 将输入流转换为图片对象
-            // 保存为图片文件
+        if (png) {
+            // 导出流程图
+            InputStream processDiagram = repositoryService.getProcessDiagram(processInstance.getProcessDefinitionId());
+            File pngFile = new File(userHomeDir + pngFileName);
+            FileUtils.copyInputStreamToFile(processDiagram, pngFile);
+            logger.debug("流程图片" + pngFile.getAbsolutePath() + " 写入完成！");
+            processDiagram.close();
+        }
+        return deployID;
+    }
+
+    private void writePng(String fileName, InputStream pngResource) {
+        BufferedImage bufferedImage = null;
+        try {
             File file = new File(GEN_PATH + fileName + ".png");
             if (!file.exists()) {
                 file.createNewFile();
             }
-            InputStream pngResource = repositoryService.getResourceAsStream(deployID, pngFileName);
-            BufferedImage bufferedImage = ImageIO.read(pngResource);
+            bufferedImage = ImageIO.read(pngResource);
             FileOutputStream fos = new FileOutputStream(file);
             ImageIO.write(bufferedImage, "png", fos);
             fos.close();
             logger.debug("流程图片" + file.getAbsolutePath() + " 写入完成！");
+        } catch (IOException e) {
+            logger.error("流程图片写入失败！" + e.getMessage());
         }
-        return deploy;
     }
 
+    /**
+     * 快速由xml文件生成png
+     *
+     * @param deployFileName
+     */
+    public void generatePng(String deployFileName) {
+        Deployment dep = repositoryService.createDeployment().addClasspathResource(deployFileName).deploy();
+        ProcessDefinition pd = repositoryService.createProcessDefinitionQuery().deploymentId(dep.getId()).singleResult();
+        InputStream processDiagram = repositoryService.getProcessDiagram(pd.getId());
+        writePng(deployFileName, processDiagram);
+    }
 }

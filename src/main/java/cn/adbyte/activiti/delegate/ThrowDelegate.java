@@ -1,4 +1,4 @@
-package cn.adbyte.activiti.$5_开始事件_结束事件_边界事件.delegate;
+package cn.adbyte.activiti.delegate;
 
 import org.activiti.engine.delegate.BpmnError;
 import org.activiti.engine.delegate.DelegateExecution;

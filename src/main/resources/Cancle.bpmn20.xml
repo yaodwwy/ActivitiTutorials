@@ -8,7 +8,7 @@
         <cancelEventDefinition></cancelEventDefinition>
       </endEvent>
       <userTask id="usertask1" name="Tran Task"></userTask>
-      <serviceTask isForCompensation="true" id="servicetask1" name="Compensation" activiti:class="cn.adbyte.activiti.$5_开始事件_结束事件_边界事件.delegate.CompenstaionDelegate">
+      <serviceTask isForCompensation="true" id="servicetask1" name="Compensation" activiti:class="cn.adbyte.activiti.delegate.CompenstaionDelegate">
       </serviceTask>
       <boundaryEvent id="boundarycompensation1" name="Compensate" attachedToRef="usertask1" cancelActivity="true">
         <compensateEventDefinition></compensateEventDefinition>

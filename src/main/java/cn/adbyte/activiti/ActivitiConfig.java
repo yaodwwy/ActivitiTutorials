@@ -25,6 +25,7 @@ public class ActivitiConfig {
         config.setJdbcPassword("root");
         config.setDatabaseSchemaUpdate("true");
         config.setAsyncExecutorActivate(true);
+        config.setCreateDiagramOnDeploy(true);
         /**
          * Mail配置
          */
@@ -52,6 +53,12 @@ public class ActivitiConfig {
     public TaskService taskService() {
         // 任务服务
         return processEngine().getTaskService();
+    }
+
+    @Bean
+    public IdentityService identityService() {
+        // 用户身份服务
+        return processEngine().getIdentityService();
     }
 
     @Bean
