@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
   <process id="service_timer_suspend_exception" name="service_timer_suspend_exception" isExecutable="true">
-    <documentation>工作的产生与管理
+    <documentation>
+      工作的产生与管理
 异步任务
 定时事件
 暂停的工作
@@ -11,7 +12,7 @@
     <serviceTask id="sid-9C2CA8A5-1CFE-454F-9D40-678579CC5AA0" name="服务任务默认处理" activiti:async="true" activiti:class="cn.adbyte.activiti.delegate.MyJavaDelegate"></serviceTask>
     <intermediateCatchEvent id="sid-25AD3389-D11C-41B7-AC23-7883E915A76E" name="TimerCatchEvent">
       <timerEventDefinition>
-        <timeDuration>PT20S</timeDuration>
+        <timeDuration>PT10S</timeDuration>
       </timerEventDefinition>
     </intermediateCatchEvent>
     <userTask id="sid-2D971D69-82EA-4D6C-9EE1-2B19C772060E" name="用户任务"></userTask>
@@ -25,22 +26,22 @@
   <bpmndi:BPMNDiagram id="BPMNDiagram_service_timer_suspend_exception">
     <bpmndi:BPMNPlane bpmnElement="service_timer_suspend_exception" id="BPMNPlane_service_timer_suspend_exception">
       <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
-        <omgdc:Bounds height="30.0" width="30.0" x="105.0" y="175.0"></omgdc:Bounds>
+        <omgdc:Bounds height="30.0" width="30.0" x="-15.0" y="-15.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="sid-1DFDBA29-D169-409C-BFBC-913575DB2644" id="BPMNShape_sid-1DFDBA29-D169-409C-BFBC-913575DB2644">
-        <omgdc:Bounds height="28.0" width="28.0" x="815.0" y="176.0"></omgdc:Bounds>
+        <omgdc:Bounds height="28.0" width="28.0" x="-14.0" y="-14.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="sid-9C2CA8A5-1CFE-454F-9D40-678579CC5AA0" id="BPMNShape_sid-9C2CA8A5-1CFE-454F-9D40-678579CC5AA0">
-        <omgdc:Bounds height="80.0" width="100.0" x="180.0" y="150.0"></omgdc:Bounds>
+        <omgdc:Bounds height="80.0" width="100.0" x="-50.0" y="-40.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="sid-25AD3389-D11C-41B7-AC23-7883E915A76E" id="BPMNShape_sid-25AD3389-D11C-41B7-AC23-7883E915A76E">
-        <omgdc:Bounds height="31.0" width="31.0" x="345.0" y="165.0"></omgdc:Bounds>
+        <omgdc:Bounds height="31.0" width="31.0" x="-15.5" y="-15.5"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="sid-2D971D69-82EA-4D6C-9EE1-2B19C772060E" id="BPMNShape_sid-2D971D69-82EA-4D6C-9EE1-2B19C772060E">
-        <omgdc:Bounds height="80.0" width="100.0" x="645.0" y="150.0"></omgdc:Bounds>
+        <omgdc:Bounds height="80.0" width="100.0" x="-50.0" y="-40.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="sid-64CE75C8-2FD0-4F3C-9466-2AD087CA1487" id="BPMNShape_sid-64CE75C8-2FD0-4F3C-9466-2AD087CA1487">
-        <omgdc:Bounds height="80.0" width="100.0" x="450.0" y="150.0"></omgdc:Bounds>
+        <omgdc:Bounds height="80.0" width="100.0" x="-50.0" y="-40.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="sid-A82E4B5C-0C06-406A-A6CC-2888D16DF319" id="BPMNEdge_sid-A82E4B5C-0C06-406A-A6CC-2888D16DF319">
         <omgdi:waypoint x="280.0" y="190.0"></omgdi:waypoint>

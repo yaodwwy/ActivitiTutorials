@@ -12,25 +12,25 @@
   <bpmndi:BPMNDiagram documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
     <bpmndi:BPMNPlane bpmnElement="myProcess">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="Shape-startevent1">
-        <omgdc:Bounds height="32.0" width="32.0" x="200.0" y="180.0"/>
+        <omgdc:Bounds height="32.0" width="32.0" x="-16.0" y="-16.0"/>
         <bpmndi:BPMNLabel>
           <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="receivetask1" id="Shape-receivetask1">
-        <omgdc:Bounds height="55.0" width="105.0" x="310.0" y="170.0"/>
+        <omgdc:Bounds height="55.0" width="105.0" x="-52.5" y="-27.5"/>
         <bpmndi:BPMNLabel>
           <omgdc:Bounds height="55.0" width="105.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask1" id="Shape-usertask1">
-        <omgdc:Bounds height="55.0" width="105.0" x="490.0" y="170.0"/>
+        <omgdc:Bounds height="55.0" width="105.0" x="-52.5" y="-27.5"/>
         <bpmndi:BPMNLabel>
           <omgdc:Bounds height="55.0" width="105.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="endevent1" id="Shape-endevent1">
-        <omgdc:Bounds height="32.0" width="32.0" x="660.0" y="180.0"/>
+        <omgdc:Bounds height="32.0" width="32.0" x="-16.0" y="-16.0"/>
         <bpmndi:BPMNLabel>
           <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>

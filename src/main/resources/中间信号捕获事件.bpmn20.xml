@@ -33,34 +33,34 @@
   <bpmndi:BPMNDiagram id="BPMNDiagram_myProcess">
     <bpmndi:BPMNPlane bpmnElement="myProcess" id="BPMNPlane_myProcess">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
-        <omgdc:Bounds height="30.0" width="30.0" x="60.0" y="160.0"></omgdc:Bounds>
+        <omgdc:Bounds height="30.0" width="30.0" x="285.8731316211131" y="0.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="parallelgateway1" id="BPMNShape_parallelgateway1">
-        <omgdc:Bounds height="40.0" width="40.0" x="160.0" y="157.0"></omgdc:Bounds>
+        <omgdc:Bounds height="40.0" width="40.0" x="212.32471793240617" y="150.5152201598737"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
-        <omgdc:Bounds height="55.0" width="105.0" x="280.0" y="70.0"></omgdc:Bounds>
+        <omgdc:Bounds height="55.0" width="105.0" x="254.31635147243958" y="229.00028144856702"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask2" id="BPMNShape_usertask2">
-        <omgdc:Bounds height="55.0" width="105.0" x="460.0" y="150.0"></omgdc:Bounds>
+        <omgdc:Bounds height="55.0" width="105.0" x="13.296046107701159" y="194.29826793710595"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="signalintermediatecatchevent1" id="BPMNShape_signalintermediatecatchevent1">
-        <omgdc:Bounds height="30.0" width="30.0" x="315.0" y="160.0"></omgdc:Bounds>
+        <omgdc:Bounds height="30.0" width="30.0" x="139.53463210235367" y="146.4173573705218"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="signalintermediatecatchevent2" id="BPMNShape_signalintermediatecatchevent2">
-        <omgdc:Bounds height="30.0" width="30.0" x="315.0" y="240.0"></omgdc:Bounds>
+        <omgdc:Bounds height="30.0" width="30.0" x="35.5" y="313.03584122759156"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="usertask3" id="BPMNShape_usertask3">
-        <omgdc:Bounds height="55.0" width="105.0" x="460.0" y="230.0"></omgdc:Bounds>
+        <omgdc:Bounds height="55.0" width="105.0" x="66.10005818632865" y="383.4983211820796"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="parallelgateway2" id="BPMNShape_parallelgateway2">
-        <omgdc:Bounds height="40.0" width="40.0" x="630.0" y="157.0"></omgdc:Bounds>
+        <omgdc:Bounds height="40.0" width="40.0" x="212.32471793240612" y="394.02090251628476"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
-        <omgdc:Bounds height="28.0" width="28.0" x="720.0" y="160.0"></omgdc:Bounds>
+        <omgdc:Bounds height="28.0" width="28.0" x="286.30272477985864" y="554.2420453850161"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="signalintermediatethrowevent1" id="BPMNShape_signalintermediatethrowevent1">
-        <omgdc:Bounds height="30.0" width="30.0" x="490.0" y="80.0"></omgdc:Bounds>
+        <omgdc:Bounds height="30.0" width="30.0" x="276.5203053647385" y="347.7378547390524"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
         <omgdi:waypoint x="89.99727965177306" y="175.2856624695576"></omgdi:waypoint>
