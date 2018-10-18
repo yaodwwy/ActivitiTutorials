@@ -51,48 +51,48 @@
             id="BPMNPlane_myProcess">
             <bpmndi:BPMNShape bpmnElement="startevent1"
                 id="BPMNShape_startevent1">
-                <omgdc:Bounds height="35.0" width="35.0" x="0.0"
-                    y="10.000000000000043"></omgdc:Bounds>
+                <omgdc:Bounds height="35.0" width="35.0" x="-17.5"
+                    y="-17.5"></omgdc:Bounds>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="servicetask1"
                 id="BPMNShape_servicetask1">
                 <omgdc:Bounds height="55.0" width="105.0"
-                              x="99.01508529717765" y="4.263256414560601E-14"></omgdc:Bounds>
+                              x="-52.5" y="-27.5"></omgdc:Bounds>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="boundarycompensation1"
                 id="BPMNShape_boundarycompensation1">
-                <omgdc:Bounds height="30.0" width="30.0" x="323.0"
-                    y="112.70117187500004"></omgdc:Bounds>
+                <omgdc:Bounds height="30.0" width="30.0" x="-15.0"
+                    y="-15.0"></omgdc:Bounds>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="servicetask2"
                 id="BPMNShape_servicetask2">
                 <omgdc:Bounds height="55.0" width="105.0"
-                              x="267.5477812084746" y="0.0"></omgdc:Bounds>
+                              x="-52.5" y="-27.5"></omgdc:Bounds>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="boundarycompensation2"
                 id="BPMNShape_boundarycompensation2">
-                <omgdc:Bounds height="30.0" width="30.0" x="444.0"
-                    y="112.70117187500004"></omgdc:Bounds>
+                <omgdc:Bounds height="30.0" width="30.0" x="-15.0"
+                    y="-15.0"></omgdc:Bounds>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="compensationintermediatethrowevent1"
                 id="BPMNShape_compensationintermediatethrowevent1">
-                <omgdc:Bounds height="35.0" width="35.0" x="436.5628665056522"
-                    y="9.999999999999968"></omgdc:Bounds>
+                <omgdc:Bounds height="35.0" width="35.0" x="-17.5"
+                    y="-17.5"></omgdc:Bounds>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="endevent1"
                 id="BPMNShape_endevent1">
-                <omgdc:Bounds height="35.0" width="35.0" x="536.0603411887105"
-                    y="9.999999999999943"></omgdc:Bounds>
+                <omgdc:Bounds height="35.0" width="35.0" x="-17.5"
+                    y="-17.5"></omgdc:Bounds>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="servicetask3"
                 id="BPMNShape_servicetask3">
                 <omgdc:Bounds height="55.0" width="105.0"
-                              x="0.0" y="112.70117187500006"></omgdc:Bounds>
+                              x="-52.5" y="-27.5"></omgdc:Bounds>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="servicetask4"
                 id="BPMNShape_servicetask4">
                 <omgdc:Bounds height="55.0" width="105.0"
-                              x="150.0" y="112.70117187500006"></omgdc:Bounds>
+                              x="-52.5" y="-27.5"></omgdc:Bounds>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNEdge bpmnElement="flow1"
                 id="BPMNEdge_flow1">

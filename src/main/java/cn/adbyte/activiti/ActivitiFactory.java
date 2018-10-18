@@ -22,7 +22,9 @@ import org.springframework.stereotype.Component;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 
 @Component
@@ -56,40 +58,62 @@ public class ActivitiFactory {
      * @param bpmn20Xml
      * @return
      */
-    public ProcessInstance deployAndStart(String bpmn20Xml) {
+    public ProcessInstance deployAndStart(Map<String, Object> param, String... bpmn20Xml) {
         if (bpmn20Xml == null) {
             throw new RuntimeException("流程文件不能为空！");
         }
         DeploymentBuilder builder = repositoryService.createDeployment();
-        builder.addClasspathResource(bpmn20Xml);
+        for (String bpmn : bpmn20Xml) {
+            builder.addClasspathResource(bpmn);
+            builder.name(bpmn);
+        }
         // 关闭语法错误检查 ( DTD格式检查 )
         // builder.disableSchemaValidation();
         // 关闭流程错误验证 ( 流程图画的不对 如 流程冲突 )
         // builder.disableBpmnValidation();
         // 部署
         Deployment dep = builder.deploy();
-        logger.debug("部署：" + bpmn20Xml);
-        ProcessDefinition pd = repositoryService.createProcessDefinitionQuery().deploymentId(dep.getId()).singleResult();
+        logger.debug("部署：");
+        for (String bpmn : bpmn20Xml) {
+            logger.debug(bpmn);
+        }
+        List<ProcessDefinition> processDefinitions = repositoryService.createProcessDefinitionQuery().deploymentId(dep.getId()).list();
         // 启动流程
-        ProcessInstance processInstance = runService.startProcessInstanceById(pd.getId(), bpmn20Xml);
-        logger.debug("流程实例id：" + processInstance.getId() + ", name:" + processInstance.getName() + "已启动 ...");
+        ProcessInstance processInstance = null;
+        for (ProcessDefinition p : processDefinitions) {
+            processInstance = runService.startProcessInstanceById(p.getId(), p.getKey(), param);
+            logger.debug("流程实例id：" + processInstance.getId() + ", BusinessKey:" + processInstance.getBusinessKey() + " 已启动 ...");
+        }
+        logger.debug("这里默认只返回一个流程实例###");
         return processInstance;
     }
 
+    public ProcessInstance deployAndStart(String... bpmn20Xml) {
+        return this.deployAndStart(null, bpmn20Xml);
+    }
+
     public void complete(ProcessInstance pi) {
+        complete(pi, null);
+    }
+
+    public void complete(ProcessInstance pi, Map<String, Object> params) {
         if (pi == null) {
             throw new RuntimeException("流程实例不能为空！");
         }
 
-        logger.debug("当前流程实例id：" + pi.getId() + ", name:" + pi.getName() + "正在获取任务 ...");
+        logger.debug("当前流程实例id：" + pi.getId() + ", BusinessKey:" + pi.getBusinessKey() + "正在获取任务 ...");
 
         List<Task> tasks = taskService.createTaskQuery().processInstanceId(pi.getId()).list();
 
         Print.tasks(tasks);
         for (Task task : tasks) {
             logger.debug("当前任务：" + task.getName());
-            taskService.complete(task.getId());
+            taskService.complete(task.getId(), params);
             logger.debug("任务已完成");
+            List<Task> tasks2 = taskService.createTaskQuery().processInstanceId(pi.getId()).list();
+            for (Task t : tasks2) {
+                logger.debug("当前最新任务：" + t.getName());
+            }
         }
 
     }
