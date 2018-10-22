@@ -141,7 +141,7 @@ public class _6BPMN事件Test {
         }
 
         list = runService.createExecutionQuery().processInstanceId(processInstance.getId()).list();
-        System.out.println("终结后执行流数量：");
+        System.out.println("终结后执行流：");
 
         Print.exec(list);
 

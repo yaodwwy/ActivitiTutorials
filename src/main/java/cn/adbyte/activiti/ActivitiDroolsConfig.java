@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan
-public class ActivitiConfig {
+public class ActivitiDroolsConfig {
 
     @Bean
     public ProcessEngine processEngine() {
@@ -26,16 +26,8 @@ public class ActivitiConfig {
                 .setJdbcDriver("com.mysql.jdbc.Driver")
                 .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE)
                 .setAsyncExecutorActivate(true)
-                .setCreateDiagramOnDeploy(true)
+                .setCreateDiagramOnDeploy(true);
 
-                /**
-                 * Mail配置
-                 */
-                .setMailServerHost("smtp.163.com")
-                .setMailServerPort(25)
-                .setMailServerDefaultFrom("abc@163.com")
-                .setMailServerUsername("abc@163.com")
-                .setMailServerPassword("123456");
 
         ProcessEngine processEngine = cfg.buildProcessEngine();
         String pName = processEngine.getName();

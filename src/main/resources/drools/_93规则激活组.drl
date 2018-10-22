@@ -1,0 +1,22 @@
+package cn.adbyte.activiti.pojo
+
+
+
+rule "acivation group A"
+    activation-group "acivation group" //具有相同activation-group 属性的规则中只要有一个会被执行，其它的规则都将不再执行
+    agenda-group "agenda group"
+    when
+        Member(amount > 100)
+    then
+        System.out.println("消费金额大于100, 组A");
+end
+
+rule "acivation group B"
+    activation-group "acivation group"
+    agenda-group "agenda group"
+    salience 10 //salience 属性的值是一个数字，数字越大执行优先级越高
+    when
+        Member(amount > 120)
+    then
+        System.out.println("消费金额大于120, 组B");
+end

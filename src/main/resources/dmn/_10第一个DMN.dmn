@@ -1,0 +1,29 @@
+<definitions xmlns="http://www.omg.org/spec/DMN/20151130" id="definition_1d3a0477-c9fc-4c40-8b90-12944fd27a3e"
+             name="Simple" namespace="http://camunda.org/schema/1.0/dmn">
+    <decision id="decision12" name="Simple">
+        <decisionTable id="decisionTable_1d3a0477-c9fc-4c40-8b90-12944fd27a3e" hitPolicy="FIRST">
+            <input>
+                <inputExpression id="inputExpression_inputExpression1" typeRef="number">
+                    <text>personAge</text>
+                </inputExpression>
+            </input>
+            <output id="outputExpression_outputId" label="Output 1" name="myResult" typeRef="string"></output>
+            <rule>
+                <inputEntry id="inputEntry_inputExpression1_1">
+                    <text> &gt;= 18 </text>
+                </inputEntry>
+                <outputEntry id="outputEntry_outputId_1">
+                    <text>'成年人'</text>
+                </outputEntry>
+            </rule>
+            <rule>
+                <inputEntry id="inputEntry_inputExpression1_2">
+                    <text> &lt; 18 </text>
+                </inputEntry>
+                <outputEntry id="outputEntry_outputId_2">
+                    <text>'小孩'</text>
+                </outputEntry>
+            </rule>
+        </decisionTable>
+    </decision>
+</definitions>

@@ -1,1 +1,3 @@
 rootProject.name = 'ActivitiTutorials'
+include 'spring-boot-with-activiti-drools-example'
+

@@ -1,0 +1,11 @@
+package cn.adbyte.activiti.pojo
+
+
+rule "discount a"
+    agenda-group "updateTest"
+    when
+        $m : Member(amount >= 100)
+    then
+        $m.setAfterDiscount(100 - 20);
+        update($m);
+end

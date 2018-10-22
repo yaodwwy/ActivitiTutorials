@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--KIE是jBoss里面一些相关项目的统称-->
+<!--
+KieServices、KieContainer、KieSession类就都是KIE的公共API
+-->
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+    <kbase name="SimpleRuleKBase" packages="drools">
+        <ksession name="simpleRuleKSession"/>
+    </kbase>
+    <kbase name="rules" packages="rules">
+        <ksession name="ksession-rules"/>
+    </kbase>
+</kmodule>

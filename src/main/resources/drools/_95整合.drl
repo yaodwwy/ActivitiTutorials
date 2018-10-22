@@ -1,0 +1,18 @@
+package cn.adbyte.activiti.pojo
+
+
+rule "withDrl gold"
+    when
+        $m : Member(identity == "gold")
+    then
+        $m.setResult(0.7);
+        update($m);
+end
+
+rule "withDrl silver"
+    when
+        $m : Member(identity == "silver")
+    then
+        $m.setResult(0.8);
+        update($m);
+end

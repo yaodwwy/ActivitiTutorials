@@ -1,0 +1,17 @@
+package cn.adbyte.activiti.pojo
+
+/* 规则内定义变量 */
+global String param;
+global Member me;
+
+function void print(Member m) {
+    System.out.println("配置文件内输出：会员身份：" + m.getIdentity() + ", 消费金额：" + m.getAmount());
+}
+
+
+rule "function"
+    when 
+        m : Member(amount > 100);
+    then
+        print(m);
+end

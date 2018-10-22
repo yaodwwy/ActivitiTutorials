@@ -1,0 +1,24 @@
+package cn.adbyte.activiti.pojo
+
+rule "discount 7"
+    when
+        Member(identity == "gold");
+    then
+        /*Java 代码 */
+        System.out.println("黄金圣斗士打7折");
+end
+
+rule "discount 8"
+    when
+        Member(identity == "silver");
+    then
+        System.out.println("白解圣斗士打8折");
+end
+
+rule "discount 9"
+    when
+        Member(identity == "copper");
+    then
+        // 符合规则后执行的操作，是Java代码
+        System.out.println("青铜圣斗士打骨折");
+end
