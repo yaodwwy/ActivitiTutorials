@@ -31,11 +31,11 @@ configurations {
 dependencies {
     compile('org.activiti:activiti-spring-boot-starter-basic:6+')
     compile('org.activiti:activiti-bpmn-layout:6.0.0')
-    
+
     // 决策引擎
     compile('org.activiti:activiti-dmn-engine:6.0.0')
-    compile group: 'org.mvel', name: 'mvel2', version: '2.4.2.Final'
-
+    
+    compile('org.mvel:mvel2:2.4.2.Final')
     compile('org.drools:drools-core:7+')
     compile('org.drools:drools-compiler:7+')
     compile('org.kie:kie-api:7+')

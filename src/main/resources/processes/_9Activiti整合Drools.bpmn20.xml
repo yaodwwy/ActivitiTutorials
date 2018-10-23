@@ -5,12 +5,18 @@
     xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
     typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
     targetNamespace="http://www.activiti.org/test">
-    <process id="myProcess" name="My process" isExecutable="true">
+    <process id="loanrequestWithRules" name="My process" isExecutable="true">
         <startEvent id="startevent1" name="Start"></startEvent>
         <userTask id="usertask1" name="录入销售信息"></userTask>
         <serviceTask id="servicetask1" name="输出结果" activiti:class="cn.adbyte.activiti.delegate.VariableDelegate"></serviceTask>
+
+        <businessRuleTask id="ID" name="名称" activiti:class="cn.adbyte.activiti.delegate.BusinessRuleTaskDelegate"
+                          activiti:ruleVariablesInput="${member}"
+                          activiti:rules="ACTwithDrl1,ACTwithDrl2"
+                          activiti:resultVariable="members"></businessRuleTask>
+
         <businessRuleTask id="businessruletask1" name="匹配销售规则"
-            activiti:ruleVariablesInput="${member}" activiti:class=""
+            activiti:ruleVariablesInput="${member}"
             activiti:resultVariable="members"></businessRuleTask>
         <endEvent id="endevent1" name="End"></endEvent>
         <sequenceFlow id="flow1" sourceRef="startevent1"

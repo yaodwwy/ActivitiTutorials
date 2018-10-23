@@ -2,16 +2,18 @@ package cn.adbyte.activiti;
 
 import cn.adbyte.activiti.pojo.Member;
 import cn.adbyte.activiti.pojo.Message;
+import org.activiti.engine.RepositoryService;
+import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
+import org.activiti.engine.repository.DeploymentBuilder;
 import org.activiti.engine.runtime.ProcessInstance;
+import org.activiti.engine.test.ActivitiRule;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kie.api.KieServices;
 import org.kie.api.builder.KieBuilder;
 import org.kie.api.builder.KieFileSystem;
-import org.kie.api.builder.KieRepository;
 import org.kie.api.builder.model.KieBaseModel;
 import org.kie.api.builder.model.KieModuleModel;
 import org.kie.api.definition.rule.Rule;
@@ -23,6 +25,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,36 +34,26 @@ import static org.junit.Assert.assertNotNull;
 
 
 @RunWith(SpringRunner.class)
-@Import({ActivitiConfig.class})
+@Import({ActivitiDroolsConfig.class})
 public class _9规则引擎Drools {
 
     @Autowired
     private ActivitiFactory ActivitiFactory;
 
     @Autowired
+    private RepositoryService repositoryService;
+
+    @Autowired
+    private RuntimeService runtimeService;
+
+    @Autowired
     private TaskService taskService;
 
-    protected KieServices kieServices;
-    protected KieContainer kieContainer;
-    protected KieRepository repository;
+    @Autowired
+    private KieContainer kieContainer;
 
-    @Before
-    public void setUp() {
-        // 通过KieServices对象得到一个KieContainer，利用kieContainer对象创建一个新的KieSession
-        // KieServices就是一个中心，通过它来获取的各种对象来完成规则构建、管理和执行等操作
-        kieServices = KieServices.Factory.get();
-        // KieContainer就是一个KieBase的容器
-        // KieBase就是一个知识仓库，包含了若干的规则、流程、方法等
-        kieContainer = kieServices.getKieClasspathContainer();
-        /** 创建KieBase是一个成本非常高的事情，KieBase会建立知识（规则、流程）仓库
-         * KieRepository是一个单例对象，它是一个存放KieModule的仓库
-         * KieProject：
-         * KieContainer通过KieProject来初始化、构造KieModule，
-         * 并将KieModule存放到KieRepository中，然后KieContainer可以通过KieProject来查找KieModule定义的信息，
-         * 并根据这些信息构造KieBase和KieSession。
-         * */
-        repository = kieServices.getRepository();
-    }
+    @Autowired
+    private KieServices kieServices;
 
     @Test
     public void HelloWorld() {
@@ -81,7 +75,7 @@ public class _9规则引擎Drools {
 
         // 定义一个事实对象
         Member m = new Member();
-        m.setIdentity("copper");
+        m.setIdentity("gold");
 
         assertNotNull("session 是 null 需要检查 kmodule.xml配置是否正确！", kSession);
 
@@ -197,13 +191,28 @@ public class _9规则引擎Drools {
         kSession.dispose();
     }
 
+    @Test
+    public void 整合测试二() {
+        KieSession kSession = kieContainer.newKieSession("simpleRuleKSession");
+        // 定义一个事实对象
+        Member m = new Member();
+        m.setIdentity("silver");
+        m.setAmount(102);
+        // 向StatefulKnowledgeSession中加入事实
+        kSession.insert(m);
+        // 匹配规则
+        kSession.fireAllRules();
+        System.out.println("优惠后金额：" + m.getResult());
+        // 关闭当前session的资源
+        kSession.dispose();
+    }
+
     /**
      * 整合失败缺失版本例子
      */
     @Test
-    public void 整合测试二() {
-        ProcessInstance processInstance = ActivitiFactory.deployAndStart("processes/_9Activiti整合Drools.bpmn20.xml", "drools/_95整合.drl");
-
+    public void 整合测试三() {
+        ProcessInstance processInstance = ActivitiFactory.deployAndStart("processes/_9Activiti整合Drools.bpmn20.xml");
         // 完成第一个任务并设置销售参数
         // 设置参数
         Map<String, Object> vars = new HashMap<String, Object>();
@@ -211,6 +220,7 @@ public class _9规则引擎Drools {
         m.setIdentity("gold");
         m.setAmount(100);
         vars.put("member", m);
-        ActivitiFactory.complete(processInstance,vars);
+        ActivitiFactory.complete(processInstance, vars);
     }
+
 }

@@ -1,7 +1,7 @@
 package cn.adbyte.activiti.pojo
 
 
-rule "withDrl gold"
+rule "ACTwithDrl1"
     when
         $m : Member(identity == "gold")
     then
@@ -9,7 +9,7 @@ rule "withDrl gold"
         update($m);
 end
 
-rule "withDrl silver"
+rule "ACTwithDrl2"
     when
         $m : Member(identity == "silver")
     then

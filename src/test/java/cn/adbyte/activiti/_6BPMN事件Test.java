@@ -48,7 +48,7 @@ public class _6BPMN事件Test {
     public void 消息开始事件() {
         repositoryService.createDeployment().addClasspathResource("processes/_6BPMN消息开始事件.bpmn20.xml").deploy();
         ProcessInstance pi = runService.startProcessInstanceByMessage("msgName");
-        Print.instances(List.of(pi));
+        Print.instances(pi);
     }
     @Test
     public void 错误开始事件() {
@@ -118,11 +118,11 @@ public class _6BPMN事件Test {
         ProcessInstance processInstance = ActivitiFactory.deployAndStart("processes/_6BPMN取消结束事件.bpmn20.xml");
         Task task = taskService.createTaskQuery().processInstanceId(processInstance.getId()).singleResult();
         System.out.println("当前流程任务：");
-        Print.tasks(List.of(task));
+        Print.tasks(task);
         taskService.complete(task.getId());
         task = taskService.createTaskQuery().processInstanceId(processInstance.getId()).singleResult();
         System.out.println("当前流程任务：");
-        Print.tasks(List.of(task));
+        Print.tasks(task);
     }
 
 

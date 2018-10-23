@@ -7,14 +7,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Print {
     private static final Logger logger = LoggerFactory.getLogger(Print.class);
+
     public static void main(String[] args) {
         logger.info("info");
         logger.debug("debug");
         logger.warn("warn");
+    }
+
+    public static void tasks(Task tasks) {
+        ArrayList<Task> t = new ArrayList<>();
+        t.add(tasks);
+        Print.tasks(t);
     }
 
     public static void tasks(List<Task> tasks) {
@@ -31,6 +39,13 @@ public class Print {
             logger.warn("=====================================");
         }
     }
+
+    public static void instances(ProcessInstance instances) {
+        ArrayList<ProcessInstance> instances1 = new ArrayList<>();
+        instances1.add(instances);
+        Print.instances(instances1);
+    }
+
     public static void instances(List<ProcessInstance> instances) {
         for (ProcessInstance pi : instances) {
             logger.warn("================Print.instances==============");
@@ -47,7 +62,13 @@ public class Print {
         }
     }
 
-    public static void exec(List<Execution> executions){
+    public static void exec(Execution executions) {
+        ArrayList<Execution> list = new ArrayList<>();
+        list.add(executions);
+        Print.exec(list);
+    }
+
+    public static void exec(List<Execution> executions) {
         for (Execution e : executions) {
             logger.warn("================Print.executions==============");
             logger.warn("Execution id =" + e.getId());

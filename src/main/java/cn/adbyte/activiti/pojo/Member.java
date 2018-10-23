@@ -2,11 +2,13 @@ package cn.adbyte.activiti.pojo;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author Adam
  */
 @Data
-public class Member {
+public class Member implements Serializable {
 
     private String identity;
     /** 消费金额 */

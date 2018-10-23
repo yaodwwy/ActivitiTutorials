@@ -36,10 +36,10 @@ public class _9决策引擎DMN {
         // 控制台输出结果
         System.out.println(result.getResultVariables().get("myResult"));
         // 重新设置参数
-        params.put("personAge", 5);
+        // params.put("personAge", 5);
         // 重新执行决策
-        result = dmnRuleService.executeDecisionByKey(dmnDecisionTable.getKey(), params);
+        // result = dmnRuleService.executeDecisionByKey(dmnDecisionTable.getKey(), params);
         // 控制台重新输出结果
-        System.out.println(result.getResultVariables().get("myResult"));
+        // System.out.println(result.getResultVariables().get("myResult"));
     }
 }

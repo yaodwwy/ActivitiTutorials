@@ -16,9 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * 候选、签收、持有人测试类
@@ -161,10 +159,14 @@ public class _3任务Test {
         }
 
         Task taskC = taskService.createTaskQuery().processInstanceId(processInstance.getId()).singleResult();
-        Print.tasks(List.of(taskC));
+        ArrayList<Task> taskArrayList = new ArrayList<>();
+        taskArrayList.add(taskC);
+        Print.tasks(taskArrayList);
         System.out.println("taskVarA 的参数：" + String.valueOf(runService.getVariable(processInstance.getId(), "taskVarA")));
         System.out.println("taskVarB 的参数: " + String.valueOf(runService.getVariable(processInstance.getId(), "taskVarB")));
         System.out.println("流程实例: ");
-        Print.instances(List.of(processInstance));
+        ArrayList<ProcessInstance> ProcessInstanceList = new ArrayList<>();
+        ProcessInstanceList.add(processInstance);
+        Print.instances(ProcessInstanceList);
     }
 }

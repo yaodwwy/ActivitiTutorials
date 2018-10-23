@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 工作的产生与管理
@@ -44,7 +45,7 @@ public class _4流程操作Test {
                 .singleResult();
 
         System.out.println("当前节点：");
-        Print.exec(List.of(exe));
+        Print.exec(exe);
 
         runService.signalEventReceived("testSignal");
 
@@ -53,7 +54,7 @@ public class _4流程操作Test {
                 .singleResult();
 
         System.out.println("当前节点：");
-        Print.exec(List.of(exe));
+        Print.exec(exe);
     }
 
     @Test
@@ -65,7 +66,7 @@ public class _4流程操作Test {
                 .processInstanceId(processInstance.getId()).onlyChildExecutions()
                 .singleResult();
         System.out.println("当前节点：");
-        Print.exec(List.of(exe));
+        Print.exec(exe);
 
         // 一个消息触发的中间捕获事件
         // 让它往前走
@@ -75,7 +76,7 @@ public class _4流程操作Test {
                 .processInstanceId(processInstance.getId()).onlyChildExecutions()
                 .singleResult();
         System.out.println("当前节点：");
-        Print.exec(List.of(exe));
+        Print.exec(exe);
     }
 
     @Test
@@ -84,7 +85,7 @@ public class _4流程操作Test {
         // 查当前的子执行流（只有一个）
         Execution exe = runService.createExecutionQuery().processInstanceId(processInstance.getId()).onlyChildExecutions().singleResult();
         System.out.println("当前节点:");
-        Print.exec(List.of(exe));
+        Print.exec(exe);
 
         // 等待任务，也就是说需要手动推进下一步的执行
         // 让它往前走
@@ -92,14 +93,14 @@ public class _4流程操作Test {
 
         exe = runService.createExecutionQuery().processInstanceId(processInstance.getId()).onlyChildExecutions().singleResult();
         System.out.println("当前节点:");
-        Print.exec(List.of(exe));
+        Print.exec(exe);
     }
 
     @Test
     public void 流程操作() throws InterruptedException {
         ProcessInstance processInstance = ActivitiFactory.deployAndStart("processes/_4流程操作.bpmn20.xml");
         String processInstanceID = processInstance.getId();
-        Print.instances(List.of(processInstance));
+        Print.instances(processInstance);
         System.out.println("==================等20秒以上再关！等下会有异常处理类打印==================");
 
         /*
