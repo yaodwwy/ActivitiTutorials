@@ -14,10 +14,13 @@ apply plugin: 'java'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-apply plugin: 'war'
+//apply plugin: 'war'
+apply plugin: 'application'
+
+mainClassName = "cn.adbyte.activiti.Print"
 
 group = 'cn.adbyte'
-version = '0.0.1-SNAPSHOT'
+version = '1'
 sourceCompatibility = 10
 
 repositories {
@@ -41,8 +44,21 @@ dependencies {
     compile('org.kie:kie-api:7+')
 
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    
+    // REST服务1
+    compile('org.apache.cxf:cxf-core:3.1.10')
+    compile('org.apache.cxf:cxf-rt-rs-client:3.1.10')
+    // REST服务2
+    compile group: 'io.github.openfeign', name: 'feign-core', version: '10.0.1'
+    compile group: 'io.github.openfeign', name: 'feign-gson', version: '10.0.1'
+    compile group: 'io.github.openfeign', name: 'feign-jackson', version: '10.0.1'
+    compile group: 'io.github.openfeign.form', name: 'feign-form', version: '3.4.0'
+    compile group: 'io.github.openfeign', name: 'feign-okhttp', version: '10.0.1'
 
 
+    compile('javax.xml.bind:jaxb-api:2.3.0')
+    compile('com.sun.xml.bind:jaxb-core:2.3.0')
+    compile('com.sun.xml.bind:jaxb-impl:2.3.0')
     compile('org.slf4j:slf4j-api')
     compile('org.slf4j:slf4j-log4j12')
 

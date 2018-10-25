@@ -2,6 +2,7 @@ package cn.adbyte.activiti;
 
 import org.activiti.engine.*;
 import org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -75,4 +76,16 @@ public class ActivitiConfig {
         return processEngine().getManagementService();
     }
 
+    @Bean
+    public FormService formService() {
+        // 表单服务
+        return processEngine().getFormService();
+    }
+
+
+    @Bean
+    public HistoryService historyService() {
+        // 历史记录
+        return processEngine().getHistoryService();
+    }
 }

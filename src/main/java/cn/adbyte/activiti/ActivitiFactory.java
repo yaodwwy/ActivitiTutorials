@@ -27,6 +27,9 @@ import java.util.List;
 import java.util.Map;
 
 
+/**
+ * @author Adam
+ */
 @Component
 public class ActivitiFactory {
     private static final Logger logger = LoggerFactory.getLogger(ActivitiFactory.class);
@@ -51,14 +54,13 @@ public class ActivitiFactory {
     @Autowired
     private ManagementService managementService;
 
-
     /**
-     * 部署并启动一个流程
+     * 部署流程
      *
      * @param bpmn20Xml
      * @return
      */
-    public ProcessInstance deployAndStart(Map<String, Object> param, String... bpmn20Xml) {
+    public List<ProcessDefinition> deploy(String... bpmn20Xml) {
         if (bpmn20Xml == null) {
             throw new RuntimeException("流程文件不能为空！");
         }
@@ -77,20 +79,35 @@ public class ActivitiFactory {
         for (String bpmn : bpmn20Xml) {
             logger.debug(bpmn);
         }
-        List<ProcessDefinition> processDefinitions = repositoryService.createProcessDefinitionQuery().deploymentId(dep.getId()).list();
-        // 启动流程
+        List<ProcessDefinition> processDefinitions = repositoryService.createProcessDefinitionQuery()
+                .deploymentId(dep.getId()).latestVersion().list();
+        return processDefinitions;
+    }
+
+    /**
+     * 部署并启动一个流程
+     *
+     * @param bpmn20Xml
+     * @return
+     */
+    public ProcessInstance deployAndStart(Map<String, Object> param, String... bpmn20Xml) {
+
+        List<ProcessDefinition> processDefinitions = this.deploy(bpmn20Xml);
         ProcessInstance processInstance = null;
         for (ProcessDefinition p : processDefinitions) {
+            // 启动流程
             processInstance = runService.startProcessInstanceById(p.getId(), p.getKey(), param);
             logger.debug("流程实例id：" + processInstance.getId() + ", BusinessKey:" + processInstance.getBusinessKey() + " 已启动 ...");
+
         }
-        logger.debug("这里默认只返回一个流程实例###");
+        logger.debug("这里默认只返回一个流程定义###");
         return processInstance;
     }
 
     public ProcessInstance deployAndStart(String... bpmn20Xml) {
         return this.deployAndStart(null, bpmn20Xml);
     }
+
 
     public void complete(ProcessInstance pi) {
         complete(pi, null);
@@ -196,7 +213,7 @@ public class ActivitiFactory {
      */
     public void generatePng(String deployFileName) {
         Deployment dep = repositoryService.createDeployment().addClasspathResource(deployFileName).deploy();
-        ProcessDefinition pd = repositoryService.createProcessDefinitionQuery().deploymentId(dep.getId()).singleResult();
+        ProcessDefinition pd = repositoryService.createProcessDefinitionQuery().deploymentId(dep.getId()).latestVersion().singleResult();
         InputStream processDiagram = repositoryService.getProcessDiagram(pd.getId());
         writePng(deployFileName, processDiagram);
     }

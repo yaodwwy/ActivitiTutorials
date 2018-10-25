@@ -1,5 +1,6 @@
 package cn.adbyte.activiti;
 
+import cn.adbyte.activiti.mvel.CustomRegistry;
 import org.activiti.dmn.api.DmnRepositoryService;
 import org.activiti.dmn.api.DmnRuleService;
 import org.activiti.dmn.engine.DmnEngine;
@@ -16,6 +17,12 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan
 public class ActivitiDMNConfig {
 
+
+    @Bean
+    public CustomRegistry customRegistry(){
+        return new CustomRegistry();
+    }
+
     @Bean
     public DmnEngine dmnEngine() {
         /**
@@ -27,6 +34,8 @@ public class ActivitiDMNConfig {
         config.setJdbcUsername("root");
         config.setJdbcPassword("root");
         config.setDatabaseSchemaUpdate("true");
+        //MVEL方法注册器
+        config.setCustomExpressionFunctionRegistry(customRegistry());
         return config.buildDmnEngine();
     }
 

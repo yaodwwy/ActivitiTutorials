@@ -92,10 +92,10 @@ public class _1部署Test {
 
     @Test
     public void 部署文本文件() throws IOException {
-        builder.addClasspathResource("other/my_text.txt");
+        builder.addClasspathResource("deploy/my_text.txt");
         Deployment deploy = builder.deploy();
         // 数据查询
-        InputStream inputStream = repositoryService.getResourceAsStream(deploy.getId(), "other/my_text.txt");
+        InputStream inputStream = repositoryService.getResourceAsStream(deploy.getId(), "deploy/my_text.txt");
         int count = inputStream.available();
         byte[] contents = new byte[count];
         inputStream.read(contents);
@@ -110,7 +110,7 @@ public class _1部署Test {
      */
     @Test
     public void 部署Zip文件() throws FileNotFoundException {
-        FileInputStream fis = new FileInputStream(new File("src/main/resources/other/datas.zip"));
+        FileInputStream fis = new FileInputStream(new File("src/main/resources/deploy/datas.zip"));
         ZipInputStream zis = new ZipInputStream(fis);
         builder = repositoryService.createDeployment();
         builder.addZipInputStream(zis);

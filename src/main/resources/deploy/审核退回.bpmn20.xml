@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://bpmn.io/schema/bpmn">
+  <process id="审核退回" isExecutable="true">
+    <startEvent id="StartEvent_1"></startEvent>
+    <userTask id="Task_1i6rmkp" name="提交参数"></userTask>
+    <sequenceFlow id="SequenceFlow_0s2t4o0" sourceRef="StartEvent_1" targetRef="Task_1i6rmkp"></sequenceFlow>
+    <userTask id="Task_05k175x" name="审核"></userTask>
+    <sequenceFlow id="SequenceFlow_0hx4wr8" sourceRef="Task_1i6rmkp" targetRef="Task_05k175x"></sequenceFlow>
+    <exclusiveGateway id="ExclusiveGateway_0subqry"></exclusiveGateway>
+    <endEvent id="EndEvent_0hv3sik"></endEvent>
+    <sequenceFlow id="SequenceFlow_086qtbm" sourceRef="Task_05k175x" targetRef="ExclusiveGateway_0subqry"></sequenceFlow>
+    <sequenceFlow id="SequenceFlow_00ecrry" sourceRef="ExclusiveGateway_0subqry" targetRef="Task_1i6rmkp">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${var <= 0}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="SequenceFlow_08uks4n" sourceRef="ExclusiveGateway_0subqry" targetRef="EndEvent_0hv3sik">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${var > 0}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_Process_1">
+    <bpmndi:BPMNPlane bpmnElement="审核退回" id="BPMNPlane_Process_1">
+      <bpmndi:BPMNShape bpmnElement="StartEvent_1" id="BPMNShape_StartEvent_1">
+        <omgdc:Bounds height="30.0" width="30.0" x="173.0" y="102.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Task_1i6rmkp" id="BPMNShape_Task_1i6rmkp">
+        <omgdc:Bounds height="80.0" width="100.0" x="259.0" y="80.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Task_05k175x" id="BPMNShape_Task_05k175x">
+        <omgdc:Bounds height="80.0" width="100.0" x="405.0" y="75.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="ExclusiveGateway_0subqry" id="BPMNShape_ExclusiveGateway_0subqry">
+        <omgdc:Bounds height="40.0" width="40.0" x="435.0" y="200.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="EndEvent_0hv3sik" id="BPMNShape_EndEvent_0hv3sik">
+        <omgdc:Bounds height="28.0" width="28.0" x="534.0" y="206.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_00ecrry" id="BPMNEdge_SequenceFlow_00ecrry">
+        <omgdi:waypoint x="435.5333333333333" y="220.53333333333333"></omgdi:waypoint>
+        <omgdi:waypoint x="309.0" y="224.0"></omgdi:waypoint>
+        <omgdi:waypoint x="309.0" y="160.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_0s2t4o0" id="BPMNEdge_SequenceFlow_0s2t4o0">
+        <omgdi:waypoint x="202.9953917836123" y="117.37178657314742"></omgdi:waypoint>
+        <omgdi:waypoint x="259.0" y="118.7603305785124"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_0hx4wr8" id="BPMNEdge_SequenceFlow_0hx4wr8">
+        <omgdi:waypoint x="359.0" y="120.0"></omgdi:waypoint>
+        <omgdi:waypoint x="382.0" y="120.0"></omgdi:waypoint>
+        <omgdi:waypoint x="382.0" y="115.0"></omgdi:waypoint>
+        <omgdi:waypoint x="405.0" y="115.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_08uks4n" id="BPMNEdge_SequenceFlow_08uks4n">
+        <omgdi:waypoint x="475.0" y="220.0"></omgdi:waypoint>
+        <omgdi:waypoint x="534.0" y="220.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="SequenceFlow_086qtbm" id="BPMNEdge_SequenceFlow_086qtbm">
+        <omgdi:waypoint x="455.0" y="155.0"></omgdi:waypoint>
+        <omgdi:waypoint x="455.0" y="200.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

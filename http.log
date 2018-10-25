@@ -1,0 +1,356 @@
+[TaskApi#taskActions] ---> POST http://localhost:8080/activiti-rest/service/runtime/tasks/515027 HTTP/1.1
+[TaskApi#taskActions] Content-Type: application/json
+[TaskApi#taskActions] Content-Length: 110
+[TaskApi#taskActions] Authorization: Basic Zm96emllOmZvenppZQ==
+[TaskApi#taskActions] 
+[TaskApi#taskActions] {
+  "variables": [
+    {
+      "name": "abcVar",
+      "value": "abcValue"
+    }
+  ],
+  "action": "complete"
+}
+[TaskApi#taskActions] ---> END HTTP (110-byte body)
+[TaskApi#taskActions] <--- HTTP/1.1 200 (379ms)
+[TaskApi#taskActions] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[TaskApi#taskActions] content-length: 0
+[TaskApi#taskActions] date: Thu, 25 Oct 2018 02:37:49 GMT
+[TaskApi#taskActions] expires: 0
+[TaskApi#taskActions] pragma: no-cache
+[TaskApi#taskActions] x-content-type-options: nosniff
+[TaskApi#taskActions] x-frame-options: DENY
+[TaskApi#taskActions] x-xss-protection: 1; mode=block
+[TaskApi#taskActions] 
+[TaskApi#taskActions] <--- END HTTP (0-byte body)
+[DeploymentApi#createDeployment] ---> POST http://localhost:8080/activiti-rest/service/repository/deployments HTTP/1.1
+[DeploymentApi#createDeployment] Content-Type: multipart/form-data; charset=UTF-8; boundary=166a9206c64
+[DeploymentApi#createDeployment] Content-Length: 4550
+[DeploymentApi#createDeployment] Authorization: Basic Zm96emllOmZvenppZQ==
+[DeploymentApi#createDeployment] 
+[DeploymentApi#createDeployment] Binary data
+[DeploymentApi#createDeployment] ---> END HTTP (4550-byte body)
+[DeploymentApi#createDeployment] <--- HTTP/1.1 201 (632ms)
+[DeploymentApi#createDeployment] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[DeploymentApi#createDeployment] content-type: application/json
+[DeploymentApi#createDeployment] date: Thu, 25 Oct 2018 02:49:27 GMT
+[DeploymentApi#createDeployment] expires: 0
+[DeploymentApi#createDeployment] pragma: no-cache
+[DeploymentApi#createDeployment] transfer-encoding: chunked
+[DeploymentApi#createDeployment] x-content-type-options: nosniff
+[DeploymentApi#createDeployment] x-frame-options: DENY
+[DeploymentApi#createDeployment] x-xss-protection: 1; mode=block
+[DeploymentApi#createDeployment] 
+[DeploymentApi#createDeployment] {"id":"515043","name":"审核退回.bpmn20.xml","deploymentTime":"2018-10-25T10:49:26.430+08:00","category":null,"url":"http://localhost:8080/activiti-rest/service/repository/deployments/515043","tenantId":""}
+[DeploymentApi#createDeployment] <--- END HTTP (209-byte body)
+[ProcessDefinitionsApi#listProcessDefinitions] ---> GET http://localhost:8080/activiti-rest/service/repository/process-definitions?key=%E5%AE%A1%E6%A0%B8%E9%80%80%E5%9B%9E HTTP/1.1
+[ProcessDefinitionsApi#listProcessDefinitions] Authorization: Basic Zm96emllOmZvenppZQ==
+[ProcessDefinitionsApi#listProcessDefinitions] ---> END HTTP (0-byte body)
+[ProcessDefinitionsApi#listProcessDefinitions] <--- HTTP/1.1 200 (53ms)
+[ProcessDefinitionsApi#listProcessDefinitions] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[ProcessDefinitionsApi#listProcessDefinitions] content-type: application/json
+[ProcessDefinitionsApi#listProcessDefinitions] date: Thu, 25 Oct 2018 02:50:55 GMT
+[ProcessDefinitionsApi#listProcessDefinitions] expires: 0
+[ProcessDefinitionsApi#listProcessDefinitions] pragma: no-cache
+[ProcessDefinitionsApi#listProcessDefinitions] transfer-encoding: chunked
+[ProcessDefinitionsApi#listProcessDefinitions] x-content-type-options: nosniff
+[ProcessDefinitionsApi#listProcessDefinitions] x-frame-options: DENY
+[ProcessDefinitionsApi#listProcessDefinitions] x-xss-protection: 1; mode=block
+[ProcessDefinitionsApi#listProcessDefinitions] 
+[ProcessDefinitionsApi#listProcessDefinitions] {"data":[{"id":"审核退回:1:515046","url":"http://localhost:8080/activiti-rest/service/repository/process-definitions/审核退回:1:515046","key":"审核退回","version":1,"name":null,"description":null,"tenantId":"","deploymentId":"515043","deploymentUrl":"http://localhost:8080/activiti-rest/service/repository/deployments/515043","resource":"http://localhost:8080/activiti-rest/service/repository/deployments/515043/resources/审核退回.bpmn20.xml","diagramResource":"http://localhost:8080/activiti-rest/service/repository/deployments/515043/resources/审核退回.审核退回.png","category":"http://bpmn.io/schema/bpmn","graphicalNotationDefined":true,"suspended":false,"startFormDefined":false}],"total":1,"start":0,"sort":"name","order":"asc","size":1}
+[ProcessDefinitionsApi#listProcessDefinitions] <--- END HTTP (767-byte body)
+[ProcessInstancesApi#startProcessInstance] ---> POST http://localhost:8080/activiti-rest/service/runtime/process-instances HTTP/1.1
+[ProcessInstancesApi#startProcessInstance] Content-Type: application/json
+[ProcessInstancesApi#startProcessInstance] Content-Length: 39
+[ProcessInstancesApi#startProcessInstance] Authorization: Basic Zm96emllOmZvenppZQ==
+[ProcessInstancesApi#startProcessInstance] 
+[ProcessInstancesApi#startProcessInstance] {"processDefinitionKey":"审核退回"}
+[ProcessInstancesApi#startProcessInstance] ---> END HTTP (39-byte body)
+[ProcessInstancesApi#startProcessInstance] <--- HTTP/1.1 500 (232ms)
+[ProcessInstancesApi#startProcessInstance] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[ProcessInstancesApi#startProcessInstance] connection: close
+[ProcessInstancesApi#startProcessInstance] content-type: application/json
+[ProcessInstancesApi#startProcessInstance] date: Thu, 25 Oct 2018 02:52:33 GMT
+[ProcessInstancesApi#startProcessInstance] expires: 0
+[ProcessInstancesApi#startProcessInstance] pragma: no-cache
+[ProcessInstancesApi#startProcessInstance] transfer-encoding: chunked
+[ProcessInstancesApi#startProcessInstance] x-content-type-options: nosniff
+[ProcessInstancesApi#startProcessInstance] x-frame-options: DENY
+[ProcessInstancesApi#startProcessInstance] x-xss-protection: 1; mode=block
+[ProcessInstancesApi#startProcessInstance] 
+[ProcessInstancesApi#startProcessInstance] {"message":"Internal server error","exception":"Unknown property used in expression: ${var == '不通过'}"}
+[ProcessInstancesApi#startProcessInstance] <--- END HTTP (108-byte body)
+[DeploymentApi#createDeployment] ---> POST http://localhost:8080/activiti-rest/service/repository/deployments HTTP/1.1
+[DeploymentApi#createDeployment] Content-Type: multipart/form-data; charset=UTF-8; boundary=166a925dc06
+[DeploymentApi#createDeployment] Content-Length: 4532
+[DeploymentApi#createDeployment] Authorization: Basic Zm96emllOmZvenppZQ==
+[DeploymentApi#createDeployment] 
+[DeploymentApi#createDeployment] Binary data
+[DeploymentApi#createDeployment] ---> END HTTP (4532-byte body)
+[DeploymentApi#createDeployment] <--- HTTP/1.1 201 (706ms)
+[DeploymentApi#createDeployment] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[DeploymentApi#createDeployment] content-type: application/json
+[DeploymentApi#createDeployment] date: Thu, 25 Oct 2018 02:55:23 GMT
+[DeploymentApi#createDeployment] expires: 0
+[DeploymentApi#createDeployment] pragma: no-cache
+[DeploymentApi#createDeployment] transfer-encoding: chunked
+[DeploymentApi#createDeployment] x-content-type-options: nosniff
+[DeploymentApi#createDeployment] x-frame-options: DENY
+[DeploymentApi#createDeployment] x-xss-protection: 1; mode=block
+[DeploymentApi#createDeployment] 
+[DeploymentApi#createDeployment] {"id":"515054","name":"审核退回.bpmn20.xml","deploymentTime":"2018-10-25T10:55:22.691+08:00","category":null,"url":"http://localhost:8080/activiti-rest/service/repository/deployments/515054","tenantId":""}
+[DeploymentApi#createDeployment] <--- END HTTP (209-byte body)
+[ProcessInstancesApi#startProcessInstance] ---> POST http://localhost:8080/activiti-rest/service/runtime/process-instances HTTP/1.1
+[ProcessInstancesApi#startProcessInstance] Content-Type: application/json
+[ProcessInstancesApi#startProcessInstance] Content-Length: 39
+[ProcessInstancesApi#startProcessInstance] Authorization: Basic Zm96emllOmZvenppZQ==
+[ProcessInstancesApi#startProcessInstance] 
+[ProcessInstancesApi#startProcessInstance] {"processDefinitionKey":"审核退回"}
+[ProcessInstancesApi#startProcessInstance] ---> END HTTP (39-byte body)
+[ProcessInstancesApi#startProcessInstance] <--- HTTP/1.1 500 (81ms)
+[ProcessInstancesApi#startProcessInstance] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[ProcessInstancesApi#startProcessInstance] connection: close
+[ProcessInstancesApi#startProcessInstance] content-type: application/json
+[ProcessInstancesApi#startProcessInstance] date: Thu, 25 Oct 2018 02:55:38 GMT
+[ProcessInstancesApi#startProcessInstance] expires: 0
+[ProcessInstancesApi#startProcessInstance] pragma: no-cache
+[ProcessInstancesApi#startProcessInstance] transfer-encoding: chunked
+[ProcessInstancesApi#startProcessInstance] x-content-type-options: nosniff
+[ProcessInstancesApi#startProcessInstance] x-frame-options: DENY
+[ProcessInstancesApi#startProcessInstance] x-xss-protection: 1; mode=block
+[ProcessInstancesApi#startProcessInstance] 
+[ProcessInstancesApi#startProcessInstance] {"message":"Internal server error","exception":"Unknown property used in expression: ${var <= 0}"}
+[ProcessInstancesApi#startProcessInstance] <--- END HTTP (98-byte body)
+[DeploymentApi#createDeployment] ---> POST http://localhost:8080/activiti-rest/service/repository/deployments HTTP/1.1
+[DeploymentApi#createDeployment] Content-Type: multipart/form-data; charset=UTF-8; boundary=166a92a36ad
+[DeploymentApi#createDeployment] Content-Length: 4524
+[DeploymentApi#createDeployment] Authorization: Basic Zm96emllOmZvenppZQ==
+[DeploymentApi#createDeployment] 
+[DeploymentApi#createDeployment] Binary data
+[DeploymentApi#createDeployment] ---> END HTTP (4524-byte body)
+[DeploymentApi#createDeployment] <--- HTTP/1.1 201 (584ms)
+[DeploymentApi#createDeployment] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[DeploymentApi#createDeployment] content-type: application/json
+[DeploymentApi#createDeployment] date: Thu, 25 Oct 2018 03:00:08 GMT
+[DeploymentApi#createDeployment] expires: 0
+[DeploymentApi#createDeployment] pragma: no-cache
+[DeploymentApi#createDeployment] transfer-encoding: chunked
+[DeploymentApi#createDeployment] x-content-type-options: nosniff
+[DeploymentApi#createDeployment] x-frame-options: DENY
+[DeploymentApi#createDeployment] x-xss-protection: 1; mode=block
+[DeploymentApi#createDeployment] 
+[DeploymentApi#createDeployment] {"id":"515065","name":"审核退回.bpmn20.xml","deploymentTime":"2018-10-25T11:00:08.040+08:00","category":null,"url":"http://localhost:8080/activiti-rest/service/repository/deployments/515065","tenantId":""}
+[DeploymentApi#createDeployment] <--- END HTTP (209-byte body)
+[ProcessDefinitionsApi#listProcessDefinitions] ---> GET http://localhost:8080/activiti-rest/service/repository/process-definitions?key=%E5%AE%A1%E6%A0%B8%E9%80%80%E5%9B%9E HTTP/1.1
+[ProcessDefinitionsApi#listProcessDefinitions] Authorization: Basic Zm96emllOmZvenppZQ==
+[ProcessDefinitionsApi#listProcessDefinitions] ---> END HTTP (0-byte body)
+[ProcessDefinitionsApi#listProcessDefinitions] <--- HTTP/1.1 200 (65ms)
+[ProcessDefinitionsApi#listProcessDefinitions] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[ProcessDefinitionsApi#listProcessDefinitions] content-type: application/json
+[ProcessDefinitionsApi#listProcessDefinitions] date: Thu, 25 Oct 2018 03:00:31 GMT
+[ProcessDefinitionsApi#listProcessDefinitions] expires: 0
+[ProcessDefinitionsApi#listProcessDefinitions] pragma: no-cache
+[ProcessDefinitionsApi#listProcessDefinitions] transfer-encoding: chunked
+[ProcessDefinitionsApi#listProcessDefinitions] x-content-type-options: nosniff
+[ProcessDefinitionsApi#listProcessDefinitions] x-frame-options: DENY
+[ProcessDefinitionsApi#listProcessDefinitions] x-xss-protection: 1; mode=block
+[ProcessDefinitionsApi#listProcessDefinitions] 
+[ProcessDefinitionsApi#listProcessDefinitions] {"data":[{"id":"审核退回:1:515046","url":"http://localhost:8080/activiti-rest/service/repository/process-definitions/审核退回:1:515046","key":"审核退回","version":1,"name":null,"description":null,"tenantId":"","deploymentId":"515043","deploymentUrl":"http://localhost:8080/activiti-rest/service/repository/deployments/515043","resource":"http://localhost:8080/activiti-rest/service/repository/deployments/515043/resources/审核退回.bpmn20.xml","diagramResource":"http://localhost:8080/activiti-rest/service/repository/deployments/515043/resources/审核退回.审核退回.png","category":"http://bpmn.io/schema/bpmn","graphicalNotationDefined":true,"suspended":false,"startFormDefined":false},{"id":"审核退回:2:515057","url":"http://localhost:8080/activiti-rest/service/repository/process-definitions/审核退回:2:515057","key":"审核退回","version":2,"name":null,"description":null,"tenantId":"","deploymentId":"515054","deploymentUrl":"http://localhost:8080/activiti-rest/service/repository/deployments/515054","resource":"http://localhost:8080/activiti-rest/service/repository/deployments/515054/resources/审核退回.bpmn20.xml","diagramResource":"http://localhost:8080/activiti-rest/service/repository/deployments/515054/resources/审核退回.审核退回.png","category":"http://bpmn.io/schema/bpmn","graphicalNotationDefined":true,"suspended":false,"startFormDefined":false},{"id":"审核退回:3:515068","url":"http://localhost:8080/activiti-rest/service/repository/process-definitions/审核退回:3:515068","key":"审核退回","version":3,"name":null,"description":null,"tenantId":"","deploymentId":"515065","deploymentUrl":"http://localhost:8080/activiti-rest/service/repository/deployments/515065","resource":"http://localhost:8080/activiti-rest/service/repository/deployments/515065/resources/审核退回.bpmn20.xml","diagramResource":"http://localhost:8080/activiti-rest/service/repository/deployments/515065/resources/审核退回.审核退回.png","category":"http://bpmn.io/schema/bpmn","graphicalNotationDefined":true,"suspended":false,"startFormDefined":false}],"total":3,"start":0,"sort":"name","order":"asc","size":3}
+[ProcessDefinitionsApi#listProcessDefinitions] <--- END HTTP (2167-byte body)
+[ProcessInstancesApi#startProcessInstance] ---> POST http://localhost:8080/activiti-rest/service/runtime/process-instances HTTP/1.1
+[ProcessInstancesApi#startProcessInstance] Content-Type: application/json
+[ProcessInstancesApi#startProcessInstance] Content-Length: 47
+[ProcessInstancesApi#startProcessInstance] Authorization: Basic Zm96emllOmZvenppZQ==
+[ProcessInstancesApi#startProcessInstance] 
+[ProcessInstancesApi#startProcessInstance] {"processDefinitionId":"审核退回:3:515068"}
+[ProcessInstancesApi#startProcessInstance] ---> END HTTP (47-byte body)
+[ProcessInstancesApi#startProcessInstance] <--- HTTP/1.1 201 (390ms)
+[ProcessInstancesApi#startProcessInstance] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[ProcessInstancesApi#startProcessInstance] content-type: application/json
+[ProcessInstancesApi#startProcessInstance] date: Thu, 25 Oct 2018 03:01:15 GMT
+[ProcessInstancesApi#startProcessInstance] expires: 0
+[ProcessInstancesApi#startProcessInstance] pragma: no-cache
+[ProcessInstancesApi#startProcessInstance] transfer-encoding: chunked
+[ProcessInstancesApi#startProcessInstance] x-content-type-options: nosniff
+[ProcessInstancesApi#startProcessInstance] x-frame-options: DENY
+[ProcessInstancesApi#startProcessInstance] x-xss-protection: 1; mode=block
+[ProcessInstancesApi#startProcessInstance] 
+[ProcessInstancesApi#startProcessInstance] {"id":"515069","url":"http://localhost:8080/activiti-rest/service/runtime/process-instances/515069","businessKey":null,"suspended":false,"ended":false,"processDefinitionId":"审核退回:3:515068","processDefinitionUrl":"http://localhost:8080/activiti-rest/service/repository/process-definitions/审核退回:3:515068","processDefinitionKey":"审核退回","activityId":null,"variables":[],"tenantId":"","name":null,"completed":false}
+[ProcessInstancesApi#startProcessInstance] <--- END HTTP (434-byte body)
+[TaskApi#listTasks] ---> GET http://localhost:8080/activiti-rest/service/runtime/tasks?processInstanceId=515069 HTTP/1.1
+[TaskApi#listTasks] Authorization: Basic Zm96emllOmZvenppZQ==
+[TaskApi#listTasks] ---> END HTTP (0-byte body)
+[TaskApi#listTasks] <--- HTTP/1.1 200 (60ms)
+[TaskApi#listTasks] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[TaskApi#listTasks] content-type: application/json
+[TaskApi#listTasks] date: Thu, 25 Oct 2018 03:02:51 GMT
+[TaskApi#listTasks] expires: 0
+[TaskApi#listTasks] pragma: no-cache
+[TaskApi#listTasks] transfer-encoding: chunked
+[TaskApi#listTasks] x-content-type-options: nosniff
+[TaskApi#listTasks] x-frame-options: DENY
+[TaskApi#listTasks] x-xss-protection: 1; mode=block
+[TaskApi#listTasks] 
+[TaskApi#listTasks] {"data":[{"id":"515074","url":"http://localhost:8080/activiti-rest/service/runtime/tasks/515074","owner":null,"assignee":null,"delegationState":null,"name":"提交参数","description":null,"createTime":"2018-10-25T11:01:15.426+08:00","dueDate":null,"priority":50,"suspended":false,"taskDefinitionKey":"Task_1i6rmkp","tenantId":"","category":null,"formKey":null,"parentTaskId":null,"parentTaskUrl":null,"executionId":"515071","executionUrl":"http://localhost:8080/activiti-rest/service/runtime/executions/515071","processInstanceId":"515069","processInstanceUrl":"http://localhost:8080/activiti-rest/service/runtime/process-instances/515069","processDefinitionId":"审核退回:3:515068","processDefinitionUrl":"http://localhost:8080/activiti-rest/service/repository/process-definitions/审核退回:3:515068","variables":[]}],"total":1,"start":0,"sort":"id","order":"asc","size":1}
+[TaskApi#listTasks] <--- END HTTP (882-byte body)
+[TaskApi#taskActions] ---> POST http://localhost:8080/activiti-rest/service/runtime/tasks/515027 HTTP/1.1
+[TaskApi#taskActions] Content-Type: application/json
+[TaskApi#taskActions] Content-Length: 100
+[TaskApi#taskActions] Authorization: Basic Zm96emllOmZvenppZQ==
+[TaskApi#taskActions] 
+[TaskApi#taskActions] {
+  "variables": [
+    {
+      "name": "var",
+      "value": "0"
+    }
+  ],
+  "action": "complete"
+}
+[TaskApi#taskActions] ---> END HTTP (100-byte body)
+[TaskApi#taskActions] <--- HTTP/1.1 404 (52ms)
+[TaskApi#taskActions] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[TaskApi#taskActions] content-type: application/json;charset=UTF-8
+[TaskApi#taskActions] date: Thu, 25 Oct 2018 03:03:07 GMT
+[TaskApi#taskActions] expires: 0
+[TaskApi#taskActions] pragma: no-cache
+[TaskApi#taskActions] transfer-encoding: chunked
+[TaskApi#taskActions] x-content-type-options: nosniff
+[TaskApi#taskActions] x-frame-options: DENY
+[TaskApi#taskActions] x-xss-protection: 1; mode=block
+[TaskApi#taskActions] 
+[TaskApi#taskActions] {"message":"Not found","exception":"Could not find a task with id '515027'."}
+[TaskApi#taskActions] <--- END HTTP (77-byte body)
+[TaskApi#listTasks] ---> GET http://localhost:8080/activiti-rest/service/runtime/tasks?processInstanceId=515069 HTTP/1.1
+[TaskApi#listTasks] Authorization: Basic Zm96emllOmZvenppZQ==
+[TaskApi#listTasks] ---> END HTTP (0-byte body)
+[TaskApi#listTasks] <--- HTTP/1.1 200 (51ms)
+[TaskApi#listTasks] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[TaskApi#listTasks] content-type: application/json
+[TaskApi#listTasks] date: Thu, 25 Oct 2018 03:03:22 GMT
+[TaskApi#listTasks] expires: 0
+[TaskApi#listTasks] pragma: no-cache
+[TaskApi#listTasks] transfer-encoding: chunked
+[TaskApi#listTasks] x-content-type-options: nosniff
+[TaskApi#listTasks] x-frame-options: DENY
+[TaskApi#listTasks] x-xss-protection: 1; mode=block
+[TaskApi#listTasks] 
+[TaskApi#listTasks] {"data":[{"id":"515074","url":"http://localhost:8080/activiti-rest/service/runtime/tasks/515074","owner":null,"assignee":null,"delegationState":null,"name":"提交参数","description":null,"createTime":"2018-10-25T11:01:15.426+08:00","dueDate":null,"priority":50,"suspended":false,"taskDefinitionKey":"Task_1i6rmkp","tenantId":"","category":null,"formKey":null,"parentTaskId":null,"parentTaskUrl":null,"executionId":"515071","executionUrl":"http://localhost:8080/activiti-rest/service/runtime/executions/515071","processInstanceId":"515069","processInstanceUrl":"http://localhost:8080/activiti-rest/service/runtime/process-instances/515069","processDefinitionId":"审核退回:3:515068","processDefinitionUrl":"http://localhost:8080/activiti-rest/service/repository/process-definitions/审核退回:3:515068","variables":[]}],"total":1,"start":0,"sort":"id","order":"asc","size":1}
+[TaskApi#listTasks] <--- END HTTP (882-byte body)
+[TaskApi#taskActions] ---> POST http://localhost:8080/activiti-rest/service/runtime/tasks/515074 HTTP/1.1
+[TaskApi#taskActions] Content-Type: application/json
+[TaskApi#taskActions] Content-Length: 127
+[TaskApi#taskActions] Authorization: Basic Zm96emllOmZvenppZQ==
+[TaskApi#taskActions] 
+[TaskApi#taskActions] {
+  "variables": [
+    {
+      "name": "提交参数",
+      "value": "我要申请1000元"
+    }
+  ],
+  "action": "complete"
+}
+[TaskApi#taskActions] ---> END HTTP (127-byte body)
+[TaskApi#taskActions] <--- HTTP/1.1 200 (310ms)
+[TaskApi#taskActions] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[TaskApi#taskActions] content-length: 0
+[TaskApi#taskActions] date: Thu, 25 Oct 2018 03:03:57 GMT
+[TaskApi#taskActions] expires: 0
+[TaskApi#taskActions] pragma: no-cache
+[TaskApi#taskActions] x-content-type-options: nosniff
+[TaskApi#taskActions] x-frame-options: DENY
+[TaskApi#taskActions] x-xss-protection: 1; mode=block
+[TaskApi#taskActions] 
+[TaskApi#taskActions] <--- END HTTP (0-byte body)
+[TaskApi#listTasks] ---> GET http://localhost:8080/activiti-rest/service/runtime/tasks?processInstanceId=515069 HTTP/1.1
+[TaskApi#listTasks] Authorization: Basic Zm96emllOmZvenppZQ==
+[TaskApi#listTasks] ---> END HTTP (0-byte body)
+[TaskApi#listTasks] <--- HTTP/1.1 200 (52ms)
+[TaskApi#listTasks] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[TaskApi#listTasks] content-type: application/json
+[TaskApi#listTasks] date: Thu, 25 Oct 2018 03:04:13 GMT
+[TaskApi#listTasks] expires: 0
+[TaskApi#listTasks] pragma: no-cache
+[TaskApi#listTasks] transfer-encoding: chunked
+[TaskApi#listTasks] x-content-type-options: nosniff
+[TaskApi#listTasks] x-frame-options: DENY
+[TaskApi#listTasks] x-xss-protection: 1; mode=block
+[TaskApi#listTasks] 
+[TaskApi#listTasks] {"data":[{"id":"515078","url":"http://localhost:8080/activiti-rest/service/runtime/tasks/515078","owner":null,"assignee":null,"delegationState":null,"name":"审核","description":null,"createTime":"2018-10-25T11:03:56.942+08:00","dueDate":null,"priority":50,"suspended":false,"taskDefinitionKey":"Task_05k175x","tenantId":"","category":null,"formKey":null,"parentTaskId":null,"parentTaskUrl":null,"executionId":"515071","executionUrl":"http://localhost:8080/activiti-rest/service/runtime/executions/515071","processInstanceId":"515069","processInstanceUrl":"http://localhost:8080/activiti-rest/service/runtime/process-instances/515069","processDefinitionId":"审核退回:3:515068","processDefinitionUrl":"http://localhost:8080/activiti-rest/service/repository/process-definitions/审核退回:3:515068","variables":[]}],"total":1,"start":0,"sort":"id","order":"asc","size":1}
+[TaskApi#listTasks] <--- END HTTP (876-byte body)
+[TaskApi#taskActions] ---> POST http://localhost:8080/activiti-rest/service/runtime/tasks/515078 HTTP/1.1
+[TaskApi#taskActions] Content-Type: application/json
+[TaskApi#taskActions] Content-Length: 100
+[TaskApi#taskActions] Authorization: Basic Zm96emllOmZvenppZQ==
+[TaskApi#taskActions] 
+[TaskApi#taskActions] {
+  "variables": [
+    {
+      "name": "var",
+      "value": "0"
+    }
+  ],
+  "action": "complete"
+}
+[TaskApi#taskActions] ---> END HTTP (100-byte body)
+[TaskApi#taskActions] <--- HTTP/1.1 200 (453ms)
+[TaskApi#taskActions] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[TaskApi#taskActions] content-length: 0
+[TaskApi#taskActions] date: Thu, 25 Oct 2018 03:04:30 GMT
+[TaskApi#taskActions] expires: 0
+[TaskApi#taskActions] pragma: no-cache
+[TaskApi#taskActions] x-content-type-options: nosniff
+[TaskApi#taskActions] x-frame-options: DENY
+[TaskApi#taskActions] x-xss-protection: 1; mode=block
+[TaskApi#taskActions] 
+[TaskApi#taskActions] <--- END HTTP (0-byte body)
+[TaskApi#listTasks] ---> GET http://localhost:8080/activiti-rest/service/runtime/tasks?processInstanceId=515069 HTTP/1.1
+[TaskApi#listTasks] Authorization: Basic Zm96emllOmZvenppZQ==
+[TaskApi#listTasks] ---> END HTTP (0-byte body)
+[TaskApi#listTasks] <--- HTTP/1.1 200 (51ms)
+[TaskApi#listTasks] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[TaskApi#listTasks] content-type: application/json
+[TaskApi#listTasks] date: Thu, 25 Oct 2018 03:04:40 GMT
+[TaskApi#listTasks] expires: 0
+[TaskApi#listTasks] pragma: no-cache
+[TaskApi#listTasks] transfer-encoding: chunked
+[TaskApi#listTasks] x-content-type-options: nosniff
+[TaskApi#listTasks] x-frame-options: DENY
+[TaskApi#listTasks] x-xss-protection: 1; mode=block
+[TaskApi#listTasks] 
+[TaskApi#listTasks] {"data":[{"id":"515083","url":"http://localhost:8080/activiti-rest/service/runtime/tasks/515083","owner":null,"assignee":null,"delegationState":null,"name":"提交参数","description":null,"createTime":"2018-10-25T11:04:30.211+08:00","dueDate":null,"priority":50,"suspended":false,"taskDefinitionKey":"Task_1i6rmkp","tenantId":"","category":null,"formKey":null,"parentTaskId":null,"parentTaskUrl":null,"executionId":"515071","executionUrl":"http://localhost:8080/activiti-rest/service/runtime/executions/515071","processInstanceId":"515069","processInstanceUrl":"http://localhost:8080/activiti-rest/service/runtime/process-instances/515069","processDefinitionId":"审核退回:3:515068","processDefinitionUrl":"http://localhost:8080/activiti-rest/service/repository/process-definitions/审核退回:3:515068","variables":[]}],"total":1,"start":0,"sort":"id","order":"asc","size":1}
+[TaskApi#listTasks] <--- END HTTP (882-byte body)
+[ProcessDefinitionsApi#listProcessDefinitions] ---> GET http://localhost:8080/activiti-rest/service/repository/process-definitions?key=%E5%AE%A1%E6%A0%B8%E9%80%80%E5%9B%9E HTTP/1.1
+[ProcessDefinitionsApi#listProcessDefinitions] Authorization: Basic Zm96emllOmZvenppZQ==
+[ProcessDefinitionsApi#listProcessDefinitions] ---> END HTTP (0-byte body)
+[ProcessDefinitionsApi#listProcessDefinitions] <--- HTTP/1.1 200  (73ms)
+[ProcessDefinitionsApi#listProcessDefinitions] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[ProcessDefinitionsApi#listProcessDefinitions] content-type: application/json
+[ProcessDefinitionsApi#listProcessDefinitions] date: Thu, 25 Oct 2018 03:21:27 GMT
+[ProcessDefinitionsApi#listProcessDefinitions] expires: 0
+[ProcessDefinitionsApi#listProcessDefinitions] pragma: no-cache
+[ProcessDefinitionsApi#listProcessDefinitions] transfer-encoding: chunked
+[ProcessDefinitionsApi#listProcessDefinitions] x-content-type-options: nosniff
+[ProcessDefinitionsApi#listProcessDefinitions] x-frame-options: DENY
+[ProcessDefinitionsApi#listProcessDefinitions] x-xss-protection: 1; mode=block
+[ProcessDefinitionsApi#listProcessDefinitions] 
+[ProcessDefinitionsApi#listProcessDefinitions] {"data":[{"id":"审核退回:1:515046","url":"http://localhost:8080/activiti-rest/service/repository/process-definitions/审核退回:1:515046","key":"审核退回","version":1,"name":null,"description":null,"tenantId":"","deploymentId":"515043","deploymentUrl":"http://localhost:8080/activiti-rest/service/repository/deployments/515043","resource":"http://localhost:8080/activiti-rest/service/repository/deployments/515043/resources/审核退回.bpmn20.xml","diagramResource":"http://localhost:8080/activiti-rest/service/repository/deployments/515043/resources/审核退回.审核退回.png","category":"http://bpmn.io/schema/bpmn","graphicalNotationDefined":true,"suspended":false,"startFormDefined":false},{"id":"审核退回:2:515057","url":"http://localhost:8080/activiti-rest/service/repository/process-definitions/审核退回:2:515057","key":"审核退回","version":2,"name":null,"description":null,"tenantId":"","deploymentId":"515054","deploymentUrl":"http://localhost:8080/activiti-rest/service/repository/deployments/515054","resource":"http://localhost:8080/activiti-rest/service/repository/deployments/515054/resources/审核退回.bpmn20.xml","diagramResource":"http://localhost:8080/activiti-rest/service/repository/deployments/515054/resources/审核退回.审核退回.png","category":"http://bpmn.io/schema/bpmn","graphicalNotationDefined":true,"suspended":false,"startFormDefined":false},{"id":"审核退回:3:515068","url":"http://localhost:8080/activiti-rest/service/repository/process-definitions/审核退回:3:515068","key":"审核退回","version":3,"name":null,"description":null,"tenantId":"","deploymentId":"515065","deploymentUrl":"http://localhost:8080/activiti-rest/service/repository/deployments/515065","resource":"http://localhost:8080/activiti-rest/service/repository/deployments/515065/resources/审核退回.bpmn20.xml","diagramResource":"http://localhost:8080/activiti-rest/service/repository/deployments/515065/resources/审核退回.审核退回.png","category":"http://bpmn.io/schema/bpmn","graphicalNotationDefined":true,"suspended":false,"startFormDefined":false}],"total":3,"start":0,"sort":"name","order":"asc","size":3}
+[ProcessDefinitionsApi#listProcessDefinitions] <--- END HTTP (2167-byte body)
+[DeploymentApi#listDeployments] ---> GET http://localhost:8080/activiti-rest/service/repository/deployments HTTP/1.1
+[DeploymentApi#listDeployments] Authorization: Basic Zm96emllOmZvenppZQ==
+[DeploymentApi#listDeployments] ---> END HTTP (0-byte body)
+[DeploymentApi#listDeployments] <--- HTTP/1.1 200  (104ms)
+[DeploymentApi#listDeployments] cache-control: no-cache, no-store, max-age=0, must-revalidate
+[DeploymentApi#listDeployments] content-type: application/json
+[DeploymentApi#listDeployments] date: Thu, 25 Oct 2018 03:24:00 GMT
+[DeploymentApi#listDeployments] expires: 0
+[DeploymentApi#listDeployments] pragma: no-cache
+[DeploymentApi#listDeployments] transfer-encoding: chunked
+[DeploymentApi#listDeployments] x-content-type-options: nosniff
+[DeploymentApi#listDeployments] x-frame-options: DENY
+[DeploymentApi#listDeployments] x-xss-protection: 1; mode=block
+[DeploymentApi#listDeployments] 
+[DeploymentApi#listDeployments] {"data":[{"id":"100001","name":null,"deploymentTime":"2018-10-11T17:40:45.606+08:00","category":null,"url":"http://localhost:8080/activiti-rest/service/repository/deployments/100001","tenantId":""},{"id":"10001","name":null,"deploymentTime":"2018-10-10T16:55:01.267+08:00","category":null,"url":"http://localhost:8080/activiti-rest/service/repository/deployments/10001","tenantId":""},{"id":"102501","name":null,"deploymentTime":"2018-10-11T17:41:48.709+08:00","category":null,"url":"http://localhost:8080/activiti-rest/service/repository/deployments/102501","tenantId":""},{"id":"105001","name":null,"deploymentTime":"2018-10-11T17:44:05.705+08:00","category":null,"url":"http://localhost:8080/activiti-rest/service/repository/deployments/105001","tenantId":""},{"id":"107501","name":null,"deploymentTime":"2018-10-16T09:17:26.740+08:00","category":null,"url":"http://localhost:8080/activiti-rest/service/repository/deployments/107501","tenantId":""},{"id":"110001","name":null,"deploymentTime":"2018-10-16T09:35:30.447+08:00","category":null,"url":"http://localhost:8080/activiti-rest/service/repository/deployments/110001","tenantId":""},{"id":"112501","name":null,"deploymentTime":"2018-10-16T17:21:14.805+08:00","category":null,"url":"http://localhost:8080/activiti-rest/service/repository/deployments/112501","tenantId":""},{"id":"115001","name":null,"deploymentTime":"2018-10-16T17:22:31.149+08:00","category":null,"url":"http://localhost:8080/activiti-rest/service/repository/deployments/115001","tenantId":""},{"id":"117501","name":null,"deploymentTime":"2018-10-16T17:26:08.248+08:00","category":null,"url":"http://localhost:8080/activiti-rest/service/repository/deployments/117501","tenantId":""},{"id":"120001","name":null,"deploymentTime":"2018-10-16T17:29:41.602+08:00","category":null,"url":"http://localhost:8080/activiti-rest/service/repository/deployments/120001","tenantId":""}],"total":200,"start":0,"sort":"id","order":"asc","size":10}
+[DeploymentApi#listDeployments] <--- END HTTP (1956-byte body)
