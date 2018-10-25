@@ -100,11 +100,17 @@ public class _12表单Test {
         assertNotNull(taskFormData);
         List<FormProperty> formProperties2 = taskFormData.getFormProperties();
         for (FormProperty formProperty : formProperties2) {
-            System.out.println(ToStringBuilder.reflectionToString(formProperty));
+            System.out.println(formProperty.getName() + " = " + formProperty.getValue());
         }
         assertNotNull(formProperties2);
-        assertEquals(1, formProperties2.size());
+        assertEquals(2, formProperties2.size());
         assertNotNull(formProperties2.get(0).getValue());
         assertEquals(formProperties2.get(0).getValue(), "01/12/2012");
+
+        variables.put("age","15");
+        taskService.complete(task.getId(),variables);
+
+        long count = taskService.createTaskQuery().processInstanceId(processInstance.getId()).count();
+        assertEquals(count,0);
     }
 }
